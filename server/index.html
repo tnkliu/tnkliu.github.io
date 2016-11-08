@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: server | TnkLiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Think Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TnkLiu">
+<meta property="og:url" content="http://www.tnkliu.com/server/index.html">
+<meta property="og:site_name" content="TnkLiu">
+<meta property="og:description" content="Think Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TnkLiu">
+<meta name="twitter:description" content="Think Blog">
+  
+    <link rel="alternate" href="/rss.xml" title="TnkLiu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <!--<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">-->
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TnkLiu</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Think Think Think</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archive/">归档</a>
+        
+          <a class="main-nav-link" href="/go/">Go语言</a>
+        
+          <a class="main-nav-link" href="/php/">PHP语言</a>
+        
+          <a class="main-nav-link" href="/server/">服务器</a>
+        
+          <a class="main-nav-link" href="/mine/">随笔</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/rss.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.tnkliu.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-server/mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/mongodb.html" class="article-date">
+  <time datetime="2016-11-07T17:50:11.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/mongodb.html">MongoDB 数据备份与还原</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库备份</p>
+<pre><code>mongodump -h dbhost -d dbname -o dbdirectory
+</code></pre><p>数据库还原</p>
+<pre><code>mongorestore -h dbhost -d dbname --directoryperdb dbdirectory
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/mongodb.html" data-id="civ9ld2o5000vmkq8yuwuuc5f" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/mongodb.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/MongoDB/">MongoDB</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/mysql.html" class="article-date">
+  <time datetime="2016-10-10T03:32:11.000Z" itemprop="datePublished">2016-10-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/mysql.html">MySQL命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>mysqldump 导出表结构</li>
+</ol>
+<p>mysqldump –opt -d test -h 127.0.0.1 -u root -p &gt; test.sql</p>
+<ol>
+<li>mysql 导入</li>
+</ol>
+<p>mysql -h 127.0.0.1 -u root -p test &lt; test.sql</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/mysql.html" data-id="civ9ld2o70010mkq80z9j44fn" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/mysql.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/MySQL/">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/git.html" class="article-date">
+  <time datetime="2016-07-21T04:09:18.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/git.html">Git 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>从远程下载</li>
+</ul>
+<pre><code>git clone xxx
+</code></pre><ul>
+<li>设置邮箱</li>
+</ul>
+<pre><code>git config user.email &quot;xxx@xxx.com&quot;
+</code></pre><ul>
+<li>设置用户名</li>
+</ul>
+<pre><code>git config user.name &quot;xxx&quot;
+</code></pre><ul>
+<li>设置提交到远程安全级别（current是当前分支 matching是所有分支）</li>
+</ul>
+<pre><code>git config push.default current
+</code></pre><ul>
+<li>把新建的分支初次提交到远程</li>
+</ul>
+<pre><code>git push --set-upstream origin xxx
+</code></pre><ul>
+<li>查看仓库信息</li>
+</ul>
+<pre><code>git config --list
+</code></pre><ul>
+<li>查看分支</li>
+</ul>
+<pre><code>git branch
+</code></pre><ul>
+<li>查看所有的分支包括远程的</li>
+</ul>
+<pre><code>git branch -a
+</code></pre><ul>
+<li>新建分支</li>
+</ul>
+<pre><code>git branch xxx
+</code></pre><ul>
+<li>切换分支</li>
+</ul>
+<pre><code>git checkout xxx
+</code></pre><ul>
+<li>新建同时切换分支</li>
+</ul>
+<pre><code>git checkout -b xxx
+</code></pre><ul>
+<li>切换到远程分支</li>
+</ul>
+<pre><code>git branch remotes/origin/xxx
+</code></pre><ul>
+<li>合并其他分支到当前分支</li>
+</ul>
+<pre><code>git merge xxx
+</code></pre><ul>
+<li>删除分支</li>
+</ul>
+<pre><code>git branch -d xxx
+</code></pre><ul>
+<li>删除远程分支</li>
+</ul>
+<pre><code>git push origin --delete xxx
+</code></pre><ul>
+<li>如果从远程 clone 下代码后，需要在远程某一个分支进行开发，可以如下操作</li>
+</ul>
+<pre><code>git clone xxx
+git checkout -b xxx
+git branch --set-upstream-to=origin/xxx xxx
+git pull
+git push
+</code></pre><ul>
+<li>把本地分支提交到 Github 上</li>
+</ul>
+<pre><code>mkdir xxx
+cd xxx
+echo &quot;# xxx&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/xxx/xxx.git
+git push -u origin master
+</code></pre><ul>
+<li>本地创建 Git 仓库</li>
+</ul>
+<pre><code>git init --bare xxx.git
+</code></pre><ul>
+<li>添加远程仓库</li>
+</ul>
+<pre><code>git remote add origin https://xxx.git
+</code></pre><ul>
+<li>取消对文件的修改</li>
+</ul>
+<pre><code>git checkout -- &lt;xxxfile&gt;
+</code></pre><ul>
+<li>取消上一次的add操作</li>
+</ul>
+<pre><code>git reset HEAD
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/git.html" data-id="civ9ld2ny000nmkq8r9zvaxz9" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/git.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/siege" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/siege.html" class="article-date">
+  <time datetime="2016-07-18T08:58:12.000Z" itemprop="datePublished">2016-07-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/siege.html">Siege 对 Web 进行压力测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget http://download.joedog.org/siege/siege-4.0.2.tar.gz</div><div class="line">tar zxvf siege-4.0.2.tar.gz</div><div class="line"><span class="built_in">cd</span> siege-4.0.2</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">// 100个用户并发请求10分钟</div><div class="line">siege -c100 -t10 http://localhost</div><div class="line"></div><div class="line">// 100个用户每个用户请求10次</div><div class="line">siege -c100 -r10 http://localhost</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/siege.html" data-id="civ9ld2oi001emkq81mrgtdmc" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/siege.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Siege/">Siege</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Web/">Web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/nginx-mysql-php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/nginx-mysql-php.html" class="article-date">
+  <time datetime="2016-07-04T13:25:11.000Z" itemprop="datePublished">2016-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10+MySQL5.7.13+PHP7.0.8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装基础包"><a href="#安装基础包" class="headerlink" title="安装基础包"></a>安装基础包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum -y install epel-release</div><div class="line">yum -y install vim</div><div class="line">yum -y install gcc gcc-c++ autoconf automake m4 patch</div><div class="line">yum -y install openssl openssl-devel</div><div class="line">yum -y install pcre pcre-devel</div><div class="line">yum -y install cmake ncurses ncurses-devel bison</div><div class="line">yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel curl curl-devel libtidy libtidy-devel libmcrypt libmcrypt-devel mhash mhash-devel gd libmemcached libmemcached-devel qrencode qrencode-devel</div><div class="line">yum -y install re2c file</div><div class="line">yum -y install msgpack msgpack-devel</div></pre></td></tr></table></figure>
+<h3 id="安装-Nginx1-10"><a href="#安装-Nginx1-10" class="headerlink" title="安装 Nginx1.10"></a>安装 Nginx1.10</h3><p>Nginx1.10 MD5值: 088292d9caf6059ef328aa7dda332e44</p>
+<ul>
+<li><p>安装nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.10.1.tar.gz</div><div class="line">groupadd www</div><div class="line">useradd -g www www</div><div class="line">tar zxvf nginx-1.10.1.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.10.1</div><div class="line">./configure --user=www --group=www --prefix=/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑nginx.conf</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim /webserver/nginx/conf/nginx.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">user  www www;</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            root   html;</div><div class="line">            index  index.html index.htm;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        error_page   500 502 503 504  /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑好后启动nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">/webserver/nginx/sbin/nginx -t</div><div class="line">/webserver/nginx/sbin/nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置防火墙开放80端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</div><div class="line">firewall-cmd --reload</div><div class="line">firewall-cmd --list-all</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装-MySQL5-7-13"><a href="#安装-MySQL5-7-13" class="headerlink" title="安装 MySQL5.7.13"></a>安装 MySQL5.7.13</h3><p>MySQL5.7.13 MD5值: 8fab75dbcafcd1374d07796bff88ae00</p>
+<ul>
+<li><p>安装mysql</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.13.tar.gz</div><div class="line">groupadd mysql</div><div class="line">useradd -g mysql mysql</div><div class="line">tar zxvf mysql-5.7.13.tar.gz</div><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/webserver/mysql -DMYSQL_DATADIR=/data/mysql -DSYSCONFDIR=/webserver/mysql/etc -DWITH_EXTRA_CHARSETS=all -DWITH_SSL=bundled -DWITH_EMBEDDED_SERVER=1 -DWITH_PARTITION=1 -DWITH_INNOBASE=1 -DWITH_MYISAMMRG=1 -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/<span class="built_in">local</span>/src</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+</li>
+<li><p>继续操作mysql</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /webserver/mysql</div><div class="line">cp /webserver/mysql/support-files/mysql.server /etc/init.d/mysqld</div><div class="line">mkdir /webserver/mysql/etc</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/my.cnf</div><div class="line">chown -R mysql:mysql /webserver/mysql</div><div class="line">/webserver/mysql/bin/mysqld --initialize --user=mysql --basedir=/webserver/mysql --datadir=/data/mysql</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig --add mysqld</div><div class="line">chkconfig --level 345 mysqld on</div><div class="line">service mysqld start</div><div class="line">/webserver/mysql/bin/mysql -u root -p</div><div class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'设置为新的密码(登陆命令行输入的默认密码会在之前几步操作mysqld --initialize的时候提示)'</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装-PHP7-0-8"><a href="#安装-PHP7-0-8" class="headerlink" title="安装 PHP7.0.8"></a>安装 PHP7.0.8</h3><p>PHP7.0.8 MD5值: 642d86f3269404abc1bbfd887b682ccf</p>
+<ul>
+<li><p>安装php</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget -O php-7.0.8.tar.gz http://cn2.php.net/get/php-7.0.8.tar.gz/from/this/mirror</div><div class="line">tar zxvf php-7.0.8.tar.gz</div><div class="line"><span class="built_in">cd</span> php-7.0.8</div><div class="line">./configure --prefix=/webserver/php --with-config-file-path=/webserver/php/etc/ --with-fpm-user=www --with-fpm-group=www --with-mysql-sock=/tmp/mysql.sock --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir --enable-xml --enable-inline-optimization --with-curl --enable-mbregex --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-sockets --with-xmlrpc --enable-zip --with-tidy</div><div class="line">make</div><div class="line">make <span class="built_in">test</span></div><div class="line">make install</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置php</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cp /webserver/src/php-7.0.8/php.ini-production /webserver/php/etc/php.ini.default</div><div class="line">cp /webserver/src/php-7.0.8/php.ini-production /webserver/php/etc/php.ini</div><div class="line">cp /webserver/php/etc/php-fpm.conf.default /webserver/php/etc/php-fpm.conf</div><div class="line">cp /webserver/php/etc/php-fpm.d/www.conf.default /webserver/php/etc/php-fpm.d/www.conf</div><div class="line">cd /webserver/php/</div><div class="line">cp /webserver/src/php-7.0.8/sapi/fpm/init.d.php-fpm /etc/init.d/phpfpmd</div><div class="line">chmod 755 /etc/init.d/phpfpmd</div><div class="line">chkconfig --add phpfpmd</div><div class="line">chkconfig --level 345 phpfpmd on</div><div class="line">vim /webserver/php/etc/php.ini</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑php.ini中的timezone</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">date.timezone = Asia/Shanghai</div></pre></td></tr></table></figure>
+</li>
+<li><p>继续设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim /webserver/php/etc/php-fpm.d/www.conf.default</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改其中的listen配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">listen = /tmp/php-cgi.sock</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动php</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service phpfpmd start</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/nginx-mysql-php.html" data-id="civ9ld2od0015mkq87xle012v" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/nginx-mysql-php.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/rsync" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/rsync.html" class="article-date">
+  <time datetime="2016-02-02T16:58:30.000Z" itemprop="datePublished">2016-02-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/rsync.html">配置Rsync服务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装rsync或者使用系统默认的rsync，然后做如下的配置：</p>
+<p>vim /etc/rsyncd.conf</p>
+<pre><code>pid file = /etc/rsyncd/rsyncd.pid
+port = 873
+address = 192.168.1.2
+uid = root
+gid = root
+use chroot = yes
+read only = no
+hosts allow = 192.168.1.0/24
+hosts deny = *
+max connections = 5
+motd file = /etc/rsyncd/rsyncd.motd
+log file = /etc/rsyncd/rsyncd.log
+log format = %t %a %m %f %b
+timeout = 300
+secrets file = /etc/rsyncd/rsyncd.secrets
+[www]
+path = /www
+comment = rsync files
+auth users = root
+list = true
+ignore errors
+secrets file = /etc/rsyncd/rsyncd.secrets
+[api]
+path = /api
+comment = rsync files
+auth users = root
+list = true
+ignore errors
+secrets file = /etc/rsyncd/rsyncd.secrets
+</code></pre><p>如果没有 /etc/rsyncd/ 目录，可以自行创建。<br>然后新建并且添加如下的内容：</p>
+<p>vim /etc/rsyncd/rsyncd.motd</p>
+<pre><code>Hello World
+</code></pre><p>vim /etc/rsyncd/rsyncd.password</p>
+<pre><code>123456
+</code></pre><p>vim /etc/rsyncd/rsyncd.secrets</p>
+<pre><code>root:123456
+</code></pre><p>编辑好文件后，这几个文件权限都变成 <code>600</code> 权限，不然会遇到很多坑。<br>然后把上面的文件可以复制成多份放到不同的服务器上，只需要修改 /etc/rsyncd.conf 中的address为对应的服务器IP即可。</p>
+<p>启动服务</p>
+<pre><code>/usr/bin/rsync --daemon --config=/etc/rsyncd.conf
+</code></pre><p>执行同步</p>
+<pre><code>/usr/bin/rsync -vzrtopg --delete --exclude=&quot;log&quot; --progress  /www/ root@192.168.1.3::www  --password-file=/etc/rsyncd/rsyncd.password &gt;&gt;/etc/rsyncd/rsyncd.log 2&gt;&amp;1
+</code></pre><p>就可以把IP为 192.168.1.2 的 www 下的内容同步到 192.168.1.3 的 www 节点了。<br>有个点需要注意下，就是上面设置的端口 <code>873</code> ，记得需要对防火墙授权。<br>然后密码可以随意设置，只需要保证 password 和 secrets 文件中的密码一样即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/rsync.html" data-id="civ9ld2ob0012mkq824pkaqi2" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/rsync.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Rsync/">Rsync</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/centos-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/centos-7.html" class="article-date">
+  <time datetime="2016-01-25T08:33:46.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/centos-7.html">CentOS 7 的一些设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS 7 有些变化，其中防火墙从iptables变成了firewall，等等逐步整理中。。。</p>
+<blockquote>
+<p>修改ssh端口</p>
+</blockquote>
+<p>vi /etc/ssh/sshd_config</p>
+<p>增加端口（避免操作失误，是增加不是修改）</p>
+<pre><code>找到
+Port 22
+把前面的#号去掉
+然后复制一行在下面加入（比如增加12222这个端口）
+Port 12222
+</code></pre><p>修改firewall</p>
+<pre><code>firewall-cmd --zone=public --add-port=12222/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --zone=public --query-port=12222/tcp
+firewall-cmd --list-all
+备注：下面是对局域网开放所有端口，不用在这里运行
+firewall-cmd --zone=public --add-source=&quot;192.168.1.0/24&quot; --permanent
+如果是删除端口那么如下命令
+firewall-cmd --zone=public --remove-port=12222/tcp --permanent
+</code></pre><p>修改SELinux</p>
+<pre><code>安装semanage命令
+yum install policycoreutils-python
+semanage port -l | grep ssh
+semanage port -a -t ssh_port_t -p tcp 12222
+semanage port -l | grep ssh
+</code></pre><p>重启ssh</p>
+<pre><code>systemctl restart sshd.service
+</code></pre><p>测试新端口链接，成功后记得注释掉 /etc/ssh/sshd_config 中的 Port 22 ，然后重启下ssh即可，这样就把22换成12222了</p>
+<blockquote>
+<p>修改区域或语言</p>
+</blockquote>
+<p>vi /etc/locale.conf</p>
+<p>可对应设置，比如</p>
+<pre><code>LANG=&quot;en_US.UTF-8&quot;
+</code></pre><p>可以用命令操作</p>
+<pre><code>localectl status
+localectl set-locale LANG=en_US.utf8
+localectl set-keymap cn
+localectl set-x11-keymap cn
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/centos-7.html" data-id="civ9ld2nu000fmkq80jrhjwww" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/centos-7.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/CentOS/">CentOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/centos-rpm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/centos-rpm.html" class="article-date">
+  <time datetime="2016-01-24T13:55:21.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/centos-rpm.html">CentOS RPM 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装</p>
+<pre><code>rpm -ivh epel-release-6-8.noarch.rpm
+或
+rpm -Uvh http://ftp.sjtu.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+</code></pre><p>查看包信息</p>
+<pre><code>rpm -qpl epel-release-6-8.noarch.rpm
+</code></pre><p>卸载</p>
+<pre><code>rpm -e epel-release-6-8.noarch
+</code></pre><p>查看yum安装包位置</p>
+<pre><code>yum install vim
+rpm -qa | grep vim
+rpm -ql vim-common-7.4.160-1.el7.x86_64
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/centos-rpm.html" data-id="civ9ld2nv000imkq8e7dcs9cv" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/centos-rpm.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/RPM/">RPM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/docker.html" class="article-date">
+  <time datetime="2016-01-22T16:50:46.000Z" itemprop="datePublished">2016-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/docker.html">Docker命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS安装docker</p>
+<pre><code>yum install docker-engine
+</code></pre><p>CentOS启动docker服务</p>
+<pre><code>service docker start
+chkconfig docker on
+或
+systemctl start docker.service
+systemctl enable docker.service
+</code></pre><p>所有的镜像</p>
+<pre><code>docker images -q
+</code></pre><p>正在运行的容器</p>
+<pre><code>docker ps -a -q
+</code></pre><p>搜索镜像</p>
+<pre><code>docker search centos
+</code></pre><p>下载镜像(CentOS Linux release 7.2.1511 (Core))</p>
+<pre><code>docker pull centos
+</code></pre><p>启动centos容器并启用bash终端</p>
+<pre><code>docker run -i -t centos /bin/bash
+</code></pre><p>接着开始的命令，如果有操作并有更新同时想保存更新，那么需要记住操作终端ID（42ed5222bf49，不是镜像ID，类似[root@42ed5222bf49 /]），然后commit一下(创建一个新的镜像，默认镜像是不会被修改的)</p>
+<pre><code>docker commit -m &quot;add vim wget&quot; 42ed5222bf49 mycentos
+</code></pre><p>导出镜像(和docker export类似，export不保留提交历史，无法回滚)</p>
+<pre><code>docker save -o mycentos.tar mycentos
+或
+docker save mycentos &gt; mycentos.tar
+</code></pre><p>导入镜像(和docker import类似，import不保留提交历史，无法回滚)</p>
+<pre><code>docker load &lt; mycentos.tar
+</code></pre><p>端口映射和挂载本地目录(ro只读权限)(mytest是一个别名)</p>
+<pre><code>docker run -i -t --name mytest -p 80:80 -v /test:/test:ro mycentos /bin/bash
+</code></pre><p>启动关闭的容器</p>
+<pre><code>docker start mytest
+</code></pre><p>重新进入容器</p>
+<pre><code>docker attach mytest
+</code></pre><p>进入容器</p>
+<pre><code>docker exec -it mytest bash
+</code></pre><p>查看包括容器IP等详细信息</p>
+<pre><code>docker inspect mytest
+</code></pre><p>停止所有的容器</p>
+<pre><code>docker stop $(docker ps -a -q)
+或
+docker stop (docker ps -a -q)
+</code></pre><p>根据Dockerfile编译</p>
+<pre><code>docker build -t nginx-php-fpm .
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/docker.html" data-id="civ9ld2o1000pmkq8p2uevz3d" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/docker.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Docker/">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-server/vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/vim.html" class="article-date">
+  <time datetime="2016-01-17T01:56:54.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/vim.html">vim设置以及常用快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>编译安装 vim (需要提前安装python、lua、luajit)</p>
+</blockquote>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><div class="line"><span class="comment">#</span> <span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/storage/server/vim</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">features=huge</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">rubyinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">pythoninterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">python</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">dir=/usr/lib/python2</span><span class="string">.</span><span class="comment">7/config/</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">perlinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">cscope</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">luainterp=dynamic</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fontset</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">largefile</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">luajit</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">lua</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Cellar/luajit/2</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">4_1</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fail</span><span class="literal">-</span><span class="comment">if</span><span class="literal">-</span><span class="comment">missing</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gui=no</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">x</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">multibyte</span></div><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/storage/server/vim</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">features=huge</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">rubyinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">pythoninterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">python</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">dir=/usr/lib/python2</span><span class="string">.</span><span class="comment">7/config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">perlinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">cscope</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">luainterp=dynamic</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fontset</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">largefile</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">lua</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Cellar/lua/5</span><span class="string">.</span><span class="comment">2</span><span class="string">.</span><span class="comment">4_4</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fail</span><span class="literal">-</span><span class="comment">if</span><span class="literal">-</span><span class="comment">missing</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gui=no</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">x</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">multibyte</span></div><div class="line"><span class="comment">make</span></div><div class="line"><span class="comment">make</span> <span class="comment">install</span></div></pre></td></tr></table></figure>
+<p>vim ~/.vimrc</p>
+<blockquote>
+<p>快捷键</p>
+</blockquote>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">syntax</span> enable <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">filetype</span> <span class="keyword">on</span> <span class="comment">"检测文件的类型</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">history</span>=<span class="number">1000</span> <span class="comment">"记录历史行数</span></div><div class="line"><span class="keyword">set</span> background=dark <span class="comment">"背景使用黑色</span></div><div class="line"><span class="keyword">set</span> cursorline <span class="comment">"突出当前行</span></div><div class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">"设置tab键为4个空格</span></div><div class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span> <span class="comment">"设置为UTF-8</span></div><div class="line"><span class="keyword">set</span> fileformat=unix <span class="comment">"unix格式</span></div><div class="line"><span class="keyword">set</span> binary <span class="comment">"二进制</span></div><div class="line"><span class="keyword">set</span> noendofline <span class="comment">"保存文件的时候末尾不会自动新建一行</span></div><div class="line"></div><div class="line"><span class="comment">"打开文件光标定位到上次打开的行</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">has</span>(<span class="string">"autocmd"</span>)</div><div class="line">  <span class="keyword">au</span> BufReadPost * <span class="keyword">if</span> <span class="built_in">line</span>(<span class="string">"'\""</span>) &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">line</span>(<span class="string">"'\""</span>) &lt;= <span class="built_in">line</span>(<span class="string">"$"</span>) | <span class="keyword">exe</span> <span class="string">"normal! g'\""</span> | <span class="keyword">endif</span></div><div class="line"><span class="keyword">endif</span></div><div class="line"></div><div class="line"><span class="comment">"设置主题，主题包位置 /usr/share/vim/vim73/colors/ vim73根据版本适当调整</span></div><div class="line"><span class="keyword">colorscheme</span> desert</div></pre></td></tr></table></figure>
+<blockquote>
+<p>常用快捷键</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">gh 进入select模式</div><div class="line">v 进入可视模式</div><div class="line">Q 进入Ex模式</div><div class="line"></div><div class="line">A 光标切换到本行最后，输入状态</div><div class="line"><span class="number">15</span>G 移动光标到第<span class="number">15</span>行</div><div class="line"></div><div class="line"><span class="string">"+Y 复制当前行到系统剪切板</span></div><div class="line">"+p 粘贴系统剪切板内容到当前位置后</div><div class="line"></div><div class="line">yw 复制一个单词</div><div class="line"><span class="number">8</span>yl 复制光标起<span class="number">8</span>个字符的内容</div><div class="line">yy 复制一行</div><div class="line">y<span class="variable">$ </span>复制光标所在位置到行尾的内容</div><div class="line">y^ 复制光标所在位置到行首的内容</div><div class="line"></div><div class="line">p 粘贴</div><div class="line"></div><div class="line">dw 剪切一个单词</div><div class="line">dd 剪切一行</div><div class="line">D 剪切到行尾</div><div class="line">S 清楚一行</div><div class="line"></div><div class="line">u 取消最近一次的操作</div><div class="line">&lt;ctrl&gt;r 恢复对使用u命令的操作</div><div class="line"></div><div class="line"><span class="symbol">:s/old/new</span> 用new替换行中首次出现的old</div><div class="line"><span class="symbol">:s/old/new/g</span> 用new替换行中所有出现的old</div><div class="line"><span class="symbol">:%s/old/new/g</span> 用new替换整篇中出现的old</div><div class="line"></div><div class="line">H 移动到屏幕顶部</div><div class="line">M 移动到屏幕中部</div><div class="line">L 移动到屏幕底部</div><div class="line"><span class="number">3</span>H 表示光标移动到距窗口顶部第<span class="number">3</span>行的位置</div><div class="line"><span class="number">5</span>L 表示光标移动到距窗口底部<span class="number">5</span>行的位置</div><div class="line"></div><div class="line">zt 光标所在位置移动到屏幕顶部</div><div class="line">zz 光标所在位置移动到屏幕中部</div><div class="line">zb 光标所在位置移动到屏幕底部</div><div class="line"></div><div class="line"><span class="number">10</span>l 光标向右移动<span class="number">10</span>列</div><div class="line"><span class="number">10</span>j 光标向下移动<span class="number">10</span>行</div><div class="line"><span class="number">10</span>&lt;enter&gt; 光标向下移动<span class="number">10</span>行</div><div class="line"></div><div class="line">&lt;ctrl&gt;b 向上一页</div><div class="line">&lt;ctrl&gt;f 向下一页</div><div class="line">&lt;ctrl&gt;u 向上半页</div><div class="line">&lt;ctrl&gt;d 向下半页</div><div class="line">&lt;ctrl&gt;y 向上一行</div><div class="line">&lt;ctrl&gt;e 向下一行</div><div class="line"></div><div class="line">&lt;ctrl&gt;o 回到较旧的光标位置</div><div class="line">&lt;ctrl&gt;i 返回较新的光标位置</div><div class="line"></div><div class="line">Vu 整行小写</div><div class="line">VU 整行大写</div><div class="line"></div><div class="line"><span class="symbol">:</span>!pwd 执行pwd命令，返回结果</div><div class="line">!!pwd 执行命令并插入结果到文件中</div><div class="line"><span class="symbol">:sh</span> 临时返回unix，到了sh后如果想退出直接输入exit退出sh</div><div class="line"></div><div class="line">m 后加字母，代表标记</div><div class="line"><span class="string">' 后加标记的字母，代表跳转到那行</span></div><div class="line"></div><div class="line">gt 多个标签间进行向右切换</div><div class="line">gT 多个标签间进行向左切换</div></pre></td></tr></table></figure>
+<blockquote>
+<p>自定义快捷键</p>
+</blockquote>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">我设置的 <span class="params">&lt;leader&gt;</span> 键是 , (逗号)</div><div class="line"></div><div class="line">窗口最大化</div><div class="line"><span class="params">&lt;leader&gt;</span>zz</div><div class="line"></div><div class="line">注释 nerdcommenter</div><div class="line"><span class="params">&lt;leader&gt;</span>cc 添加注释</div><div class="line"><span class="params">&lt;leader&gt;</span>cu 取消注释</div><div class="line"></div><div class="line">折叠显示 Indent Guides</div><div class="line"><span class="params">&lt;leader&gt;</span>ii 显示/隐藏</div><div class="line"></div><div class="line">快速移动 easymotion</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;leader&gt;</span>f</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;leader&gt;</span>w</div><div class="line"></div><div class="line">打开 NERDTree</div><div class="line"><span class="params">&lt;leader&gt;</span>fl</div><div class="line"></div><div class="line">打开 NERDTree-tab</div><div class="line"><span class="params">&lt;leader&gt;</span>n</div><div class="line"></div><div class="line">打开 MiniBufExplorer</div><div class="line"><span class="params">&lt;leader&gt;</span>bl</div><div class="line"></div><div class="line">自动完成 UltiSnips</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;tab&gt;</span></div><div class="line"></div><div class="line">快速搜索 ctrlp (搜索文件)</div><div class="line"><span class="params">&lt;ctrl&gt;</span>p</div><div class="line">快速搜索加强 Ack.vim 需要安装好 ag 实现快速搜索（搜索内容）</div><div class="line"><span class="params">&lt;leader&gt;</span>ag</div><div class="line"></div><div class="line">开发golang</div><div class="line"><span class="params">&lt;leader&gt;</span>gd</div><div class="line"><span class="params">&lt;leader&gt;</span>gv</div><div class="line"><span class="params">&lt;leader&gt;</span>dv</div><div class="line"><span class="params">&lt;leader&gt;</span>dt</div><div class="line"></div><div class="line">函数标签tagbar</div><div class="line"><span class="params">&lt;leader&gt;</span>tl</div><div class="line"></div><div class="line">更好显示行数 numbers.vim</div><div class="line">显示\隐藏</div><div class="line"><span class="params">&lt;leader&gt;</span>nu</div><div class="line"></div><div class="line">更好的状态栏显示 vim-airline</div><div class="line"><span class="params">&lt;leader&gt;</span>nb</div><div class="line"></div><div class="line">区域选中 vim-expand-region</div><div class="line">增加选中范围</div><div class="line">vvv</div><div class="line">减少选中范围</div><div class="line"><span class="params">&lt;ctrl&gt;</span>vvv</div><div class="line"></div><div class="line">有道翻译 vim-youdao-translater</div><div class="line"><span class="params">&lt;leader&gt;</span>yd 输入翻译</div><div class="line"><span class="params">&lt;leader&gt;</span>fy 翻译光标处的单词</div><div class="line"></div><div class="line">快速替换surround</div><div class="line">cs<span class="string">"' 把 "</span> 换成 '</div><div class="line"></div><div class="line">时光机gundo</div><div class="line"><span class="params">&lt;leader&gt;</span>h</div><div class="line"></div><div class="line">编辑html emmet-vim</div><div class="line">先输入 html:<span class="number">5</span></div><div class="line">然后</div><div class="line"><span class="params">&lt;ctrl&gt;</span>y,</div><div class="line"></div><div class="line">多光标操作 vim-multiple-cursors</div><div class="line"><span class="params">&lt;ctrl&gt;</span>n 选中光标下的单词</div><div class="line">多按几下 <span class="params">&lt;ctrl&gt;</span>n</div><div class="line">按下c进行修改</div><div class="line"><span class="params">&lt;esc&gt;</span> 退出</div><div class="line">其中<span class="params">&lt;ctrl&gt;</span>n选择的时候配合下面的键</div><div class="line"><span class="params">&lt;ctrl&gt;</span>p 回到上一个</div><div class="line"><span class="params">&lt;ctrl&gt;</span>x 跳过这一个</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">49</span>,<span class="number">313</span>) | <span class="keyword">put</span> =<span class="string">''</span>.i.<span class="string">'.jpg'</span> | <span class="keyword">endfor</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/vim.html" data-id="civ9ld2oh001bmkq8ty12whl8" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/vim.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/server/list/2/">2</a><a class="extend next" rel="next" href="/server/list/2/">下一页 &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/CentOS/" style="font-size: 16.67px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/server/mongodb.html">MongoDB 数据备份与还原</a>
+          </li>
+        
+          <li>
+            <a href="/server/mysql.html">MySQL命令</a>
+          </li>
+        
+          <li>
+            <a href="/server/git.html">Git 命令</a>
+          </li>
+        
+          <li>
+            <a href="/server/siege.html">Siege 对 Web 进行压力测试</a>
+          </li>
+        
+          <li>
+            <a href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10+MySQL5.7.13+PHP7.0.8</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 TnkLiu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+    <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>
+  </div>
+  
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a10541f7e8988f5a927d1d9120981a0e";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archive/" class="mobile-nav-link">归档</a>
+  
+    <a href="/go/" class="mobile-nav-link">Go语言</a>
+  
+    <a href="/php/" class="mobile-nav-link">PHP语言</a>
+  
+    <a href="/server/" class="mobile-nav-link">服务器</a>
+  
+    <a href="/mine/" class="mobile-nav-link">随笔</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'tnkliu';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="/js/jquery-2.1.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
