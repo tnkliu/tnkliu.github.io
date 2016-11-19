@@ -388,7 +388,7 @@ git push -u origin master
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10+MySQL5.7.13+PHP7.0.8</a>
+      <a class="article-title" href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10.1+MySQL5.7.13+PHP7.0.8</a>
     </h1>
   
 
@@ -397,7 +397,7 @@ git push -u origin master
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="安装基础包"><a href="#安装基础包" class="headerlink" title="安装基础包"></a>安装基础包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum -y install epel-release</div><div class="line">yum -y install vim</div><div class="line">yum -y install gcc gcc-c++ autoconf automake m4 patch</div><div class="line">yum -y install openssl openssl-devel</div><div class="line">yum -y install pcre pcre-devel</div><div class="line">yum -y install cmake ncurses ncurses-devel bison</div><div class="line">yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel curl curl-devel libtidy libtidy-devel libmcrypt libmcrypt-devel mhash mhash-devel gd libmemcached libmemcached-devel qrencode qrencode-devel</div><div class="line">yum -y install re2c file</div><div class="line">yum -y install msgpack msgpack-devel</div></pre></td></tr></table></figure>
-<h3 id="安装-Nginx1-10"><a href="#安装-Nginx1-10" class="headerlink" title="安装 Nginx1.10"></a>安装 Nginx1.10</h3><p>Nginx1.10 MD5值: 088292d9caf6059ef328aa7dda332e44</p>
+<h3 id="安装-Nginx1-10-1"><a href="#安装-Nginx1-10-1" class="headerlink" title="安装 Nginx1.10.1"></a>安装 Nginx1.10.1</h3><p>Nginx1.10.1 MD5值: 088292d9caf6059ef328aa7dda332e44</p>
 <ul>
 <li><p>安装nginx</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.10.1.tar.gz</div><div class="line">groupadd www</div><div class="line">useradd -g www www</div><div class="line">tar zxvf nginx-1.10.1.tar.gz</div><div class="line"><span class="built_in">cd</span> nginx-1.10.1</div><div class="line">./configure --user=www --group=www --prefix=/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
@@ -877,7 +877,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
           </li>
         
           <li>
-            <a href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10+MySQL5.7.13+PHP7.0.8</a>
+            <a href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10.1+MySQL5.7.13+PHP7.0.8</a>
           </li>
         
       </ul>
