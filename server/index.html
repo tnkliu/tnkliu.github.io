@@ -308,6 +308,18 @@ git push -u origin master
 </ul>
 <pre><code>git log // 找到提交的 commitid
 git reset --hard commitid
+</code></pre><ul>
+<li>git常用操作命令</li>
+</ul>
+<pre><code>git log 查看log
+git reset --hard xxxxxxxxxxxxxxxxxxxx 恢复版本到指定log
+git pull 提交到远程
+git status 查看状态
+git checkout -b new_xxx 创建分支并切换到分支
+git push --set-upstream origin new_xxx 提交新建的本地分支到远程
+git branch -d xxx 删除分支
+git branch -D xxx 强制删除分支
+git push origin --delete xxx 删除远程分支
 </code></pre>
       
     </div>
@@ -825,7 +837,7 @@ docker stop (docker ps -a -q)
 <blockquote>
 <p>快捷键</p>
 </blockquote>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">syntax</span> enable <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">filetype</span> <span class="keyword">on</span> <span class="comment">"检测文件的类型</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">history</span>=<span class="number">1000</span> <span class="comment">"记录历史行数</span></div><div class="line"><span class="keyword">set</span> background=dark <span class="comment">"背景使用黑色</span></div><div class="line"><span class="keyword">set</span> cursorline <span class="comment">"突出当前行</span></div><div class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">"设置tab键为4个空格</span></div><div class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span> <span class="comment">"设置为UTF-8</span></div><div class="line"><span class="keyword">set</span> fileformat=unix <span class="comment">"unix格式</span></div><div class="line"><span class="keyword">set</span> binary <span class="comment">"二进制</span></div><div class="line"><span class="keyword">set</span> noendofline <span class="comment">"保存文件的时候末尾不会自动新建一行</span></div><div class="line"></div><div class="line"><span class="comment">"打开文件光标定位到上次打开的行</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">has</span>(<span class="string">"autocmd"</span>)</div><div class="line">  <span class="keyword">au</span> BufReadPost * <span class="keyword">if</span> <span class="built_in">line</span>(<span class="string">"'\""</span>) &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">line</span>(<span class="string">"'\""</span>) &lt;= <span class="built_in">line</span>(<span class="string">"$"</span>) | <span class="keyword">exe</span> <span class="string">"normal! g'\""</span> | <span class="keyword">endif</span></div><div class="line"><span class="keyword">endif</span></div><div class="line"></div><div class="line"><span class="comment">"设置主题，主题包位置 /usr/share/vim/vim73/colors/ vim73根据版本适当调整</span></div><div class="line"><span class="keyword">colorscheme</span> desert</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">syntax</span> enable <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">filetype</span> <span class="keyword">on</span> <span class="comment">"检测文件的类型</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">history</span>=<span class="number">1000</span> <span class="comment">"记录历史行数</span></div><div class="line"><span class="keyword">set</span> background=dark <span class="comment">"背景使用黑色</span></div><div class="line"><span class="keyword">set</span> cursorline <span class="comment">"突出当前行</span></div><div class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">"设置tab键为4个空格</span></div><div class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span> <span class="comment">"设置为UTF-8</span></div><div class="line"><span class="keyword">set</span> fileformat=unix <span class="comment">"unix格式</span></div><div class="line"><span class="keyword">set</span> binary <span class="comment">"二进制</span></div><div class="line"><span class="keyword">set</span> noendofline <span class="comment">"保存文件的时候末尾不会自动新建一行</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">fo</span>-=r <span class="comment">"不自动注释</span></div><div class="line"></div><div class="line"><span class="comment">"打开文件光标定位到上次打开的行</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">has</span>(<span class="string">"autocmd"</span>)</div><div class="line">  <span class="keyword">au</span> BufReadPost * <span class="keyword">if</span> <span class="built_in">line</span>(<span class="string">"'\""</span>) &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">line</span>(<span class="string">"'\""</span>) &lt;= <span class="built_in">line</span>(<span class="string">"$"</span>) | <span class="keyword">exe</span> <span class="string">"normal! g'\""</span> | <span class="keyword">endif</span></div><div class="line"><span class="keyword">endif</span></div><div class="line"></div><div class="line"><span class="comment">"设置主题，主题包位置 /usr/share/vim/vim73/colors/ vim73根据版本适当调整</span></div><div class="line"><span class="keyword">colorscheme</span> desert</div></pre></td></tr></table></figure>
 <blockquote>
 <p>常用快捷键</p>
 </blockquote>
