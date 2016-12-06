@@ -127,7 +127,7 @@
 <p>4.2、设置目录权限(根目录需要设置成755，主目录设置为777)</p>
 <p>  mkdir -p /ftp/www<br>  chmod -R 755 /ftp<br>  chmod -R 777 /ftp/www</p>
 <p>4.3、防火墙设置(把21号端口添加进入即可)</p>
-<p>  <code>如果是Centos7，那么执行 firewall-cmd --zone=public --add-service=ftp --permanent &amp;&amp; firewall-cmd --zone=public --add-port=80/tcp --permanent 把端口和服务添加进防火墙</code><br>  vim /etc/sysconfig/iptables</p>
+<p>  <code>如果是Centos7，那么执行 firewall-cmd --zone=public --add-service=ftp --permanent &amp;&amp; firewall-cmd --zone=public --add-port=21/tcp --permanent 把端口和服务添加进防火墙</code><br>  vim /etc/sysconfig/iptables</p>
 <p>5、重启iptables和vsftpd</p>
 <p>  <code>如果是Centos7记得重启对应下面的服务</code><br>  service iptables restart<br>  service vsftpd restart</p>
 
