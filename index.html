@@ -77,6 +77,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-server/vsftpd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/vsftpd.html" class="article-date">
+  <time datetime="2016-12-06T02:16:10.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/vsftpd.html">CentOS 下 vsftpd 安装配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>0、特别注意：配置文件中每行末尾不能有多余的<code>空格</code></p>
+<p>1、安装(可编译可yum自行决定，下面db4部分是解决密码认证问题的)</p>
+<p>  yum install vsftpd<br>  yum install db4 db4-utils</p>
+<p>2、配置文件</p>
+<p>  vim /etc/vsftpd/vsftpd.conf</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#设定不允许匿名访问</div><div class="line">anonymous_enable=NO</div><div class="line">#设定本地用户可以访问</div><div class="line">local_enable=YES</div><div class="line">#使用户不能离开主目录</div><div class="line">chroot_list_enable=YES</div><div class="line">#设定支持ASCII模式的上传和下载功能</div><div class="line">ascii_upload_enable=YES</div><div class="line">ascii_download_enable=YES</div><div class="line">#PAM认证文件名。PAM将根据/etc/pam.d/vsftpd进行认证</div><div class="line">pam_service_name=vsftpd</div><div class="line">#这下面是针对虚拟用户的重要配置，默认没有这些选项</div><div class="line">#设定启用虚拟用户功能</div><div class="line">guest_enable=YES</div><div class="line">#指定虚拟用户的宿主用户，CentOS中已经有内置的ftp用户了</div><div class="line">guest_username=ftp</div><div class="line">#设定虚拟用户个人vsftpd的FTP服务文件存放路径</div><div class="line">user_config_dir=/etc/vsftpd/vuser</div><div class="line">#如果启用了限定用户在其主目录下需要添加这个配置</div><div class="line">allow_writeable_chroot=YES</div></pre></td></tr></table></figure>
+<p>3、设置用户以及认证</p>
+<p>3.1、创建用户和密码(下面文件中奇数行是用户名，偶数行是密码)<br>  vim /etc/vsftpd/vpass.txt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">testuser</div><div class="line">testpassowjfoweje</div></pre></td></tr></table></figure>
+<p>3.2、生成虚拟用户认证db文件</p>
+<p>  db_load -T -t hash -f /etc/vsftpd/vpass.txt /etc/vsftpd/vpass.db</p>
+<p>3.3、编辑认证配置文件</p>
+<p>  vim /etc/pam.d/vsftpd</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#此文件之前的内容统统注释掉，然后加入下面内容</div><div class="line">#64位</div><div class="line">auth required /lib64/security/pam_userdb.so db=/etc/vsftpd/vpass</div><div class="line">account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vpass</div><div class="line">#32位</div><div class="line">#auth sufficient /lib/security/pam_userdb.so db=/etc/vsftpd/vpass</div><div class="line">#account sufficient /lib/security/pam_userdb.so db=/etc/vsftpd/vpass</div></pre></td></tr></table></figure>
+<p>3.4、创建虚拟用户权限配置文件(下面/etc/vsftpd/vuser/testuser中的testuser等于vpass中的用户名)</p>
+<p>  mkdir /etc/vsftpd/vuser<br>  vim /etc/vsftpd/vuser/testuser</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#虚拟用户根目录，自行决定</div><div class="line">local_root=/ftp/www</div><div class="line">#可写</div><div class="line">write_enable=YES</div><div class="line">#掩码</div><div class="line">anon_umask=022</div><div class="line">anon_world_readable_only=NO</div><div class="line">anon_upload_enable=YES</div><div class="line">anon_mkdir_write_enable=YES</div><div class="line">anon_other_write_enable=YES</div></pre></td></tr></table></figure>
+<p>4、设置防火墙以及目录权限</p>
+<p>4.1、设置Selinux</p>
+<p>  setsebool -P ftp_home_dir=1<br>  sersebool -P allow_ftpd_full_access=1</p>
+<p>4.2、设置目录权限(根目录需要设置成755，主目录设置为777)</p>
+<p>  mkdir -p /ftp/www<br>  chmod -R 755 /ftp<br>  chmod -R 777 /ftp/www</p>
+<p>4.3、防火墙设置(把21号端口添加进入即可)</p>
+<p>  <code>如果是Centos7，那么执行 firewall-cmd --zone=public --add-service=ftp --permanent &amp;&amp; firewall-cmd --zone=public --add-port=80/tcp --permanent 把端口和服务添加进防火墙</code><br>  vim /etc/sysconfig/iptables</p>
+<p>5、重启iptables和vsftpd</p>
+<p>  <code>如果是Centos7记得重启对应下面的服务</code><br>  service iptables restart<br>  service vsftpd restart</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/vsftpd.html" data-id="ciwcvlvnm0000gbfy40x32om9" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/vsftpd.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vsftpd/">vsftpd</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-server/mongodb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/server/mongodb.html" class="article-date">
@@ -764,64 +836,6 @@ localectl set-x11-keymap cn
 
 
   
-    <article id="post-server/centos-rpm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/server/centos-rpm.html" class="article-date">
-  <time datetime="2016-01-24T13:55:21.000Z" itemprop="datePublished">2016-01-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/server/">服务器</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/server/centos-rpm.html">CentOS RPM 命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装</p>
-<pre><code>rpm -ivh epel-release-6-8.noarch.rpm
-或
-rpm -Uvh http://ftp.sjtu.edu.cn/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
-</code></pre><p>查看包信息</p>
-<pre><code>rpm -qpl epel-release-6-8.noarch.rpm
-</code></pre><p>卸载</p>
-<pre><code>rpm -e epel-release-6-8.noarch
-</code></pre><p>查看yum安装包位置</p>
-<pre><code>yum install vim
-rpm -qa | grep vim
-rpm -ql vim-common-7.4.160-1.el7.x86_64
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/centos-rpm.html" data-id="civ9ld2nv000imkq8e7dcs9cv" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/server/centos-rpm.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/RPM/">RPM</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -835,7 +849,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">12</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -845,7 +859,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vsftpd/">vsftpd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -855,7 +869,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tag/CentOS/" style="font-size: 16.67px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
+      <a href="/tag/CentOS/" style="font-size: 16.67px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
     </div>
   </div>
 
@@ -865,7 +879,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -876,6 +890,10 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/server/vsftpd.html">CentOS 下 vsftpd 安装配置</a>
+          </li>
         
           <li>
             <a href="/server/mongodb.html">MongoDB 数据备份与还原</a>
@@ -891,10 +909,6 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
         
           <li>
             <a href="/server/siege.html">Siege 对 Web 进行压力测试</a>
-          </li>
-        
-          <li>
-            <a href="/server/nginx-mysql-php.html">阿里云CentOS7.2安装Nginx1.10.1+MySQL5.7.13+PHP7.0.8</a>
           </li>
         
       </ul>
