@@ -11,7 +11,11 @@ mysqldump –opt -d test -h 127.0.0.1 -u root -p &amp;gt; test.sql
 
 mysql 导入
 
-mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql">
+mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql
+
+SQL修改 mysql 密码
+
+mysql&amp;gt; UPDATE mysql.user SET password=PAS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL命令">
 <meta property="og:url" content="http://www.tnkliu.com/server/mysql.html">
@@ -22,8 +26,12 @@ mysqldump –opt -d test -h 127.0.0.1 -u root -p &amp;gt; test.sql
 
 mysql 导入
 
-mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql">
-<meta property="og:updated_time" content="2016-11-01T07:57:43.000Z">
+mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql
+
+SQL修改 mysql 密码
+
+mysql&amp;gt; UPDATE mysql.user SET password=PAS">
+<meta property="og:updated_time" content="2016-12-16T02:05:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL命令">
 <meta name="twitter:description" content="mysqldump 导出表结构
@@ -32,7 +40,11 @@ mysqldump –opt -d test -h 127.0.0.1 -u root -p &amp;gt; test.sql
 
 mysql 导入
 
-mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql">
+mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql
+
+SQL修改 mysql 密码
+
+mysql&amp;gt; UPDATE mysql.user SET password=PAS">
   
     <link rel="alternate" href="/rss.xml" title="TnkLiu" type="application/atom+xml">
   
@@ -129,6 +141,14 @@ mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql">
 <li>mysql 导入</li>
 </ol>
 <p>mysql -h 127.0.0.1 -u root -p test &lt; test.sql</p>
+<ol>
+<li>SQL修改 mysql 密码</li>
+</ol>
+<p>mysql&gt; UPDATE mysql.user SET password=PASSWORD(‘123321’) WHERE User=’root’;</p>
+<ol>
+<li>SQL 创建数据库</li>
+</ol>
+<p>mysql&gt; CREATE DATABASE xxx DEFAULT CHARACTER SET = <code>utf8</code>;</p>
 
       
     </div>
@@ -257,7 +277,7 @@ mysql -h 127.0.0.1 -u root -p test &amp;lt; test.sql">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 TnkLiu<br>
+      &copy; 2017 TnkLiu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>

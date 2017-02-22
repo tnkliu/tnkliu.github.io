@@ -35,7 +35,7 @@ netstat -n | awk &amp;apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&amp
 grep &amp;quot;搜索关键字&amp;quot; -r ./
 
 按照文件名搜">
-<meta property="og:updated_time" content="2016-11-02T04:02:55.000Z">
+<meta property="og:updated_time" content="2016-12-12T02:33:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux服务器命令">
 <meta name="twitter:description" content="查看某端口的连接数
@@ -201,6 +201,10 @@ cat /proc/version
 <p>对文件内容排序(根据每行前面6个字符)</p>
 </blockquote>
 <pre><code>sort -k1.1,1.6 no.txt &gt; ok.txt
+</code></pre><blockquote>
+<p>监测网络中DNS服务器是否能正确实现域名解析</p>
+</blockquote>
+<pre><code>nslookup xxx.com
 </code></pre>
       
     </div>
@@ -329,7 +333,7 @@ cat /proc/version
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 TnkLiu<br>
+      &copy; 2017 TnkLiu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>

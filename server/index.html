@@ -288,6 +288,14 @@
 <li>mysql 导入</li>
 </ol>
 <p>mysql -h 127.0.0.1 -u root -p test &lt; test.sql</p>
+<ol>
+<li>SQL修改 mysql 密码</li>
+</ol>
+<p>mysql&gt; UPDATE mysql.user SET password=PASSWORD(‘123321’) WHERE User=’root’;</p>
+<ol>
+<li>SQL 创建数据库</li>
+</ol>
+<p>mysql&gt; CREATE DATABASE xxx DEFAULT CHARACTER SET = <code>utf8</code>;</p>
 
       
     </div>
@@ -446,6 +454,15 @@ git push --set-upstream origin new_xxx 提交新建的本地分支到远程
 git branch -d xxx 删除分支
 git branch -D xxx 强制删除分支
 git push origin --delete xxx 删除远程分支
+</code></pre><ul>
+<li>git初次提交到github</li>
+</ul>
+<pre><code>echo &quot;# test readme&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:xxx/xxx.git
+git push -u origin master
 </code></pre>
       
     </div>
@@ -928,7 +945,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 TnkLiu<br>
+      &copy; 2017 TnkLiu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>

@@ -13,7 +13,7 @@ int32 转 stringvar i int32 = 100var s string = &quot;&quot;s = strconv.FormatIn
 <meta property="og:site_name" content="TnkLiu">
 <meta property="og:description" content="整型转字符串int 转 stringvar i int = 100var s string = &quot;&quot;s = strconv.FormatInt(int64(i), 10)// s = strconv.Itoa(i) // 也可以这么写fmt.Println(s)
 int32 转 stringvar i int32 = 100var s string = &quot;&quot;s = strconv.FormatIn">
-<meta property="og:updated_time" content="2016-11-01T07:57:43.000Z">
+<meta property="og:updated_time" content="2016-12-15T01:57:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言类型转换">
 <meta name="twitter:description" content="整型转字符串int 转 stringvar i int = 100var s string = &quot;&quot;s = strconv.FormatInt(int64(i), 10)// s = strconv.Itoa(i) // 也可以这么写fmt.Println(s)
@@ -120,6 +120,7 @@ int32 转 stringvar i int32 = 100var s string = &quot;&quot;s = strconv.FormatIn
 <h4 id="string-转-uint64"><a href="#string-转-uint64" class="headerlink" title="string 转 uint64"></a>string 转 uint64</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">uint64</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseUint(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">uint64</span>(i64)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
 <h3 id="浮点型转字符串"><a href="#浮点型转字符串" class="headerlink" title="浮点型转字符串"></a>浮点型转字符串</h3><h4 id="float32-转-string"><a href="#float32-转-string" class="headerlink" title="float32 转 string"></a>float32 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float32</span> = <span class="number">100.123456789123456789</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatFloat(<span class="keyword">float64</span>(f), <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">32</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
 <h4 id="float64-转-string"><a href="#float64-转-string" class="headerlink" title="float64 转 string"></a>float64 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">100.123456789123456789</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">64</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
+<h3 id="字符串转浮点型"><a href="#字符串转浮点型" class="headerlink" title="字符串转浮点型"></a>字符串转浮点型</h3><h4 id="string-转-float64"><a href="#string-转-float64" class="headerlink" title="string 转 float64"></a>string 转 float64</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100.123456789123456789"</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">0</span></div><div class="line">f, err := strconv.ParseFloat(s, <span class="number">64</span>)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(f)</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
@@ -247,7 +248,7 @@ int32 转 stringvar i int32 = 100var s string = &quot;&quot;s = strconv.FormatIn
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 TnkLiu<br>
+      &copy; 2017 TnkLiu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>

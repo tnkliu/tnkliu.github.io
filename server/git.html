@@ -45,7 +45,7 @@ git config user.name &amp;quot;xxx&amp;quot;
 git config push.default current
 
 把">
-<meta property="og:updated_time" content="2016-11-25T15:28:52.000Z">
+<meta property="og:updated_time" content="2017-02-22T06:56:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
 <meta name="twitter:description" content="常用命令
@@ -266,6 +266,15 @@ git push --set-upstream origin new_xxx 提交新建的本地分支到远程
 git branch -d xxx 删除分支
 git branch -D xxx 强制删除分支
 git push origin --delete xxx 删除远程分支
+</code></pre><ul>
+<li>git初次提交到github</li>
+</ul>
+<pre><code>echo &quot;# test readme&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:xxx/xxx.git
+git push -u origin master
 </code></pre>
       
     </div>
@@ -394,7 +403,7 @@ git push origin --delete xxx 删除远程分支
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 TnkLiu<br>
+      &copy; 2017 TnkLiu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
     <a class="inner" href="https://www.upyun.com/" target="_blank"><img style="background-color: #FFFFFF;" src="http://upfiles.b0.upaiyun.com/logo/120x60.png" alt="UPYUN"></a>
