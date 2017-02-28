@@ -3,24 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vim设置以及常用快捷键 | TnkLiu</title>
+  <title>Category: server | TnkLiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译安装 vim (需要提前安装python、lua、luajit)
-
-# ./configure --prefix=/storage/server/vim --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config/ --ena">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vim设置以及常用快捷键">
-<meta property="og:url" content="http://www.tnkliu.com/server/vim.html">
+  <meta name="description" content="Think Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TnkLiu">
+<meta property="og:url" content="http://www.tnkliu.com/server/list/3/index.html">
 <meta property="og:site_name" content="TnkLiu">
-<meta property="og:description" content="编译安装 vim (需要提前安装python、lua、luajit)
-
-# ./configure --prefix=/storage/server/vim --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config/ --ena">
-<meta property="og:updated_time" content="2016-11-26T21:26:54.000Z">
+<meta property="og:description" content="Think Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim设置以及常用快捷键">
-<meta name="twitter:description" content="编译安装 vim (需要提前安装python、lua、luajit)
-
-# ./configure --prefix=/storage/server/vim --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config/ --ena">
+<meta name="twitter:title" content="TnkLiu">
+<meta name="twitter:description" content="Think Blog">
   
     <link rel="alternate" href="/rss.xml" title="TnkLiu" type="application/atom+xml">
   
@@ -79,7 +72,95 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-server/vim" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-server/docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/docker.html" class="article-date">
+  <time datetime="2016-01-22T16:50:46.000Z" itemprop="datePublished">2016-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/docker.html">Docker命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CentOS安装docker</p>
+<pre><code>yum install docker-engine
+</code></pre><p>CentOS启动docker服务</p>
+<pre><code>service docker start
+chkconfig docker on
+或
+systemctl start docker.service
+systemctl enable docker.service
+</code></pre><p>所有的镜像</p>
+<pre><code>docker images -q
+</code></pre><p>正在运行的容器</p>
+<pre><code>docker ps -a -q
+</code></pre><p>搜索镜像</p>
+<pre><code>docker search centos
+</code></pre><p>下载镜像(CentOS Linux release 7.2.1511 (Core))</p>
+<pre><code>docker pull centos
+</code></pre><p>启动centos容器并启用bash终端</p>
+<pre><code>docker run -i -t centos /bin/bash
+</code></pre><p>接着开始的命令，如果有操作并有更新同时想保存更新，那么需要记住操作终端ID（42ed5222bf49，不是镜像ID，类似[root@42ed5222bf49 /]），然后commit一下(创建一个新的镜像，默认镜像是不会被修改的)</p>
+<pre><code>docker commit -m &quot;add vim wget&quot; 42ed5222bf49 mycentos
+</code></pre><p>导出镜像(和docker export类似，export不保留提交历史，无法回滚)</p>
+<pre><code>docker save -o mycentos.tar mycentos
+或
+docker save mycentos &gt; mycentos.tar
+</code></pre><p>导入镜像(和docker import类似，import不保留提交历史，无法回滚)</p>
+<pre><code>docker load &lt; mycentos.tar
+</code></pre><p>端口映射和挂载本地目录(ro只读权限)(mytest是一个别名)</p>
+<pre><code>docker run -i -t --name mytest -p 80:80 -v /test:/test:ro mycentos /bin/bash
+</code></pre><p>启动关闭的容器</p>
+<pre><code>docker start mytest
+</code></pre><p>重新进入容器</p>
+<pre><code>docker attach mytest
+</code></pre><p>进入容器</p>
+<pre><code>docker exec -it mytest bash
+</code></pre><p>查看包括容器IP等详细信息</p>
+<pre><code>docker inspect mytest
+</code></pre><p>停止所有的容器</p>
+<pre><code>docker stop $(docker ps -a -q)
+或
+docker stop (docker ps -a -q)
+</code></pre><p>根据Dockerfile编译</p>
+<pre><code>docker build -t nginx-php-fpm .
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/docker.html" data-id="ciznja35y000pa0fyuw39pmvt" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/docker.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Docker/">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-server/vim" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/server/vim.html" class="article-date">
   <time datetime="2016-01-17T01:56:54.000Z" itemprop="datePublished">2016-01-17</time>
@@ -96,8 +177,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      vim设置以及常用快捷键
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/vim.html">vim设置以及常用快捷键</a>
     </h1>
   
 
@@ -137,35 +218,195 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/server/docker.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Docker命令
-        
-      </div>
-    </a>
-  
-  
-    <a href="/server/terminal-shell.html" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">快捷的zsh和fish shell</div>
-    </a>
-  
-</nav>
+</article>
 
+
+  
+    <article id="post-server/terminal-shell" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/terminal-shell.html" class="article-date">
+  <time datetime="2016-01-16T09:45:21.000Z" itemprop="datePublished">2016-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/terminal-shell.html">快捷的zsh和fish shell</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>把终端升级了一下，经常操作的平台，唯快不破，索性分析了一下zsh和fish两个shell工具，两个都介绍一下。</p>
+<p>终端，你需要通过它操作系统，记得从Windows切换到Linux的时候，对命令行又是神秘又是敬畏，怕不会操作，怕有误操作，但是熟悉后就能自主的控制文件，运行命令，可以自定义很多功能，慢慢熟悉后会非常喜欢，会越来越少的误操作，越来越知道什么是命令之美，需要多操作，多使用。</p>
+<ul>
+<li>zsh shell</li>
+</ul>
+<ol>
+<li>yum命令可以直接安装<br> yum install zsh</li>
+<li>安装好以后执行<br> chsh -s /bin/zsh</li>
+<li>安装 oh-my-zsh 设置zsh主题<br> sh -c “$(curl -fsSL <a href="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" target="_blank" rel="external">https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh</a>)”</li>
+<li>安装 autojump 以便实现 j xxx 快速跳转到目录<br> yum install autojump-zsh</li>
+</ol>
+<ul>
+<li>fish shell</li>
+</ul>
+<ol>
+<li>先到官网下载安装包 <a href="http://fishshell.com" target="_blank" rel="external">http://fishshell.com</a></li>
+<li>安装好以后执行<br> chsh -s /usr/local/bin/fish</li>
+<li>重启终端</li>
+<li>运行 fish_config 会打开一个网页，可以在浏览器中设置终端配色等</li>
+<li>安装 oh-my-fish 可以通过 <a href="https://github.com/oh-my-fish/oh-my-fish" target="_blank" rel="external">https://github.com/oh-my-fish/oh-my-fish</a> 查看具体详情<br> curl -L <a href="https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install" target="_blank" rel="external">https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install</a> &gt; install<br> fish install</li>
+<li>切换主题，输入 omf theme 可以查看所有的主题，然后直接后面接对应的主题回车即可，比如 omf theme lambda，如果提示需要安装，直接omf install对应的主题即可</li>
+<li>如果有自定义环境变量，需要按照如下方式定义<br> set -x PATH $PATH /my/bin</li>
+<li>好好享受fish shell带来的快捷把。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/terminal-shell.html" data-id="ciznja36c001ca0fyi14mr8yt" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/terminal-shell.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Terminal/">Terminal</a></li></ul>
+
+    </footer>
+  </div>
   
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+    <article id="post-server/command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/command.html" class="article-date">
+  <time datetime="2016-01-01T13:18:15.000Z" itemprop="datePublished">2016-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
   </div>
-</section>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/command.html">Linux服务器命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>查看某端口的连接数</p>
+</blockquote>
+<pre><code>netstat -nat | grep 6379 | wc -l
+</code></pre><blockquote>
+<p>查看 TCP 连接情况</p>
+</blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;
+</code></pre><blockquote>
+<p>按照内容搜索文件(其中 ./ 是服务器的目录)</p>
+</blockquote>
+<pre><code>grep &quot;搜索关键字&quot; -r ./
+</code></pre><blockquote>
+<p>按照文件名搜索文件</p>
+</blockquote>
+<pre><code>find ./ -name filename
+</code></pre><blockquote>
+<p>搜索并删掉</p>
+</blockquote>
+<pre><code>ps -ef | grep &apos;nginx&apos; | awk &apos;{print $2}&apos; | xargs kill -9
+</code></pre><blockquote>
+<p>查看系统版本</p>
+</blockquote>
+<pre><code>uname -r
+cat /etc/issue
+cat /proc/version
+</code></pre><blockquote>
+<p>查看具体命令放在什么位置</p>
+</blockquote>
+<pre><code>which nginx
+</code></pre><blockquote>
+<p>修改内核可以同时打开的文件描述符的最大值</p>
+</blockquote>
+<pre><code>ulimit -SHn 65535
+</code></pre><blockquote>
+<p>查看某一端口占用情况</p>
+</blockquote>
+<pre><code>lsof -i :11211
+</code></pre><blockquote>
+<p>查看内存条数</p>
+</blockquote>
+<pre><code>dmidecode -t memory | grep Size
+</code></pre><blockquote>
+<p>修改服务器主机名</p>
+</blockquote>
+<pre><code>hostnamectl set-hostname myserver
+</code></pre><blockquote>
+<p>设置ssh密钥</p>
+</blockquote>
+<pre><code>ssh-keygen -t rsa -C &quot;your name&quot;
+</code></pre><blockquote>
+<p>tar 加密</p>
+</blockquote>
+<pre><code>tar -zcvf - xxx | openssl des3 -salt -k 123321 | dd of=xxx.des3
+</code></pre><blockquote>
+<p>tar 解密</p>
+</blockquote>
+<pre><code>dd if=xxx.des3 | openssl des3 -d -k 123321 | tar zxf -
+</code></pre><blockquote>
+<p>对文件内容排序(根据每行前面6个字符)</p>
+</blockquote>
+<pre><code>sort -k1.1,1.6 no.txt &gt; ok.txt
+</code></pre><blockquote>
+<p>监测网络中DNS服务器是否能正确实现域名解析</p>
+</blockquote>
+<pre><code>nslookup xxx.com
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/command.html" data-id="ciznja35x000na0fyp14gxbcs" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/command.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/server/list/2/">&laquo; 上一页</a><a class="page-number" href="/server/">1</a><a class="page-number" href="/server/list/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 </section>
         
           <aside id="sidebar">
@@ -285,13 +526,11 @@
 <script>
   var disqus_shortname = 'tnkliu';
   
-  var disqus_url = 'http://www.tnkliu.com/server/vim.html';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

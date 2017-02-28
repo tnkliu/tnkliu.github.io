@@ -3,33 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Go语言使用Redigo操作Redis | TnkLiu</title>
+  <title>TnkLiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="操作Redis Redigo
-首先看看 http://redis.io/commands这里是关于Redis的各项命令Redigo这个第三方库是依照命令关键词来get和set数据的
-
-我们来找找HSET（我们要往Redis中添加一条hash类型的数据），http://redis.io/commands/hset 点进去会看到实例命令
-
-redis&amp;gt; HSET myhash field1 &quot;H">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Go语言使用Redigo操作Redis">
-<meta property="og:url" content="http://www.tnkliu.com/go/redis-redigo.html">
+  <meta name="description" content="Think Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TnkLiu">
+<meta property="og:url" content="http://www.tnkliu.com/list/4/index.html">
 <meta property="og:site_name" content="TnkLiu">
-<meta property="og:description" content="操作Redis Redigo
-首先看看 http://redis.io/commands这里是关于Redis的各项命令Redigo这个第三方库是依照命令关键词来get和set数据的
-
-我们来找找HSET（我们要往Redis中添加一条hash类型的数据），http://redis.io/commands/hset 点进去会看到实例命令
-
-redis&amp;gt; HSET myhash field1 &quot;H">
-<meta property="og:updated_time" content="2016-11-01T07:57:43.000Z">
+<meta property="og:description" content="Think Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go语言使用Redigo操作Redis">
-<meta name="twitter:description" content="操作Redis Redigo
-首先看看 http://redis.io/commands这里是关于Redis的各项命令Redigo这个第三方库是依照命令关键词来get和set数据的
-
-我们来找找HSET（我们要往Redis中添加一条hash类型的数据），http://redis.io/commands/hset 点进去会看到实例命令
-
-redis&amp;gt; HSET myhash field1 &quot;H">
+<meta name="twitter:title" content="TnkLiu">
+<meta name="twitter:description" content="Think Blog">
   
     <link rel="alternate" href="/rss.xml" title="TnkLiu" type="application/atom+xml">
   
@@ -88,7 +72,222 @@ redis&amp;gt; HSET myhash field1 &quot;H">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-go/redis-redigo" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-go/strings" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/strings.html" class="article-date">
+  <time datetime="2016-01-15T06:56:32.000Z" itemprop="datePublished">2016-01-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/strings.html">Go语言strings包备注</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>strings.Split<br>把字符串进行分割</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    str := <span class="string">"Hello-World"</span></div><div class="line">    ret := strings.Split(str, <span class="string">"-"</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 [Hello World]</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>strings.Join<br>把数组进行合并</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    arr := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line">    ret := strings.Join(arr, <span class="string">"-"</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 Hello-World</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>strings.Replace<br>字符串替换，最后一个参数是替换多少个匹配字符，如果全部替换用 -1</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    str := <span class="string">"Hello-World"</span></div><div class="line">    ret := strings.Replace(str, <span class="string">"-"</span>, <span class="string">" "</span>, <span class="number">-1</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 Hello World</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/strings.html" data-id="ciznja35a0006a0fyatjws1is" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/strings.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/字符串/">字符串</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-go/pointer-reference" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/pointer-reference.html" class="article-date">
+  <time datetime="2016-01-04T04:43:38.000Z" itemprop="datePublished">2016-01-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/pointer-reference.html">Go语言指针和引用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指针和引用容易混淆，看看一个简单的例子</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(p *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">    *p = *p + <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> *p</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    i := <span class="number">1</span></div><div class="line">    fmt.Println(<span class="string">"i = "</span>, i)   <span class="comment">// i 等于 1</span></div><div class="line">    r := test(&amp;i)            <span class="comment">// 传i的地址</span></div><div class="line">    fmt.Println(<span class="string">"i+1 = "</span>, r) <span class="comment">// r 等于 2</span></div><div class="line">    fmt.Println(<span class="string">"i = "</span>, i)   <span class="comment">// i 等于 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">i =  <span class="number">1</span></div><div class="line">i+<span class="number">1</span> =  <span class="number">2</span></div><div class="line">i =  <span class="number">2</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/pointer-reference.html" data-id="ciznja3580004a0fyq57w3ylk" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/pointer-reference.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/引用/">引用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/指针/">指针</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-server/command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/command.html" class="article-date">
+  <time datetime="2016-01-01T13:18:15.000Z" itemprop="datePublished">2016-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/command.html">Linux服务器命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>查看某端口的连接数</p>
+</blockquote>
+<pre><code>netstat -nat | grep 6379 | wc -l
+</code></pre><blockquote>
+<p>查看 TCP 连接情况</p>
+</blockquote>
+<pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;
+</code></pre><blockquote>
+<p>按照内容搜索文件(其中 ./ 是服务器的目录)</p>
+</blockquote>
+<pre><code>grep &quot;搜索关键字&quot; -r ./
+</code></pre><blockquote>
+<p>按照文件名搜索文件</p>
+</blockquote>
+<pre><code>find ./ -name filename
+</code></pre><blockquote>
+<p>搜索并删掉</p>
+</blockquote>
+<pre><code>ps -ef | grep &apos;nginx&apos; | awk &apos;{print $2}&apos; | xargs kill -9
+</code></pre><blockquote>
+<p>查看系统版本</p>
+</blockquote>
+<pre><code>uname -r
+cat /etc/issue
+cat /proc/version
+</code></pre><blockquote>
+<p>查看具体命令放在什么位置</p>
+</blockquote>
+<pre><code>which nginx
+</code></pre><blockquote>
+<p>修改内核可以同时打开的文件描述符的最大值</p>
+</blockquote>
+<pre><code>ulimit -SHn 65535
+</code></pre><blockquote>
+<p>查看某一端口占用情况</p>
+</blockquote>
+<pre><code>lsof -i :11211
+</code></pre><blockquote>
+<p>查看内存条数</p>
+</blockquote>
+<pre><code>dmidecode -t memory | grep Size
+</code></pre><blockquote>
+<p>修改服务器主机名</p>
+</blockquote>
+<pre><code>hostnamectl set-hostname myserver
+</code></pre><blockquote>
+<p>设置ssh密钥</p>
+</blockquote>
+<pre><code>ssh-keygen -t rsa -C &quot;your name&quot;
+</code></pre><blockquote>
+<p>tar 加密</p>
+</blockquote>
+<pre><code>tar -zcvf - xxx | openssl des3 -salt -k 123321 | dd of=xxx.des3
+</code></pre><blockquote>
+<p>tar 解密</p>
+</blockquote>
+<pre><code>dd if=xxx.des3 | openssl des3 -d -k 123321 | tar zxf -
+</code></pre><blockquote>
+<p>对文件内容排序(根据每行前面6个字符)</p>
+</blockquote>
+<pre><code>sort -k1.1,1.6 no.txt &gt; ok.txt
+</code></pre><blockquote>
+<p>监测网络中DNS服务器是否能正确实现域名解析</p>
+</blockquote>
+<pre><code>nslookup xxx.com
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/command.html" data-id="ciznja35x000na0fyp14gxbcs" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/command.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-go/redis-redigo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/go/redis-redigo.html" class="article-date">
   <time datetime="2015-12-28T16:26:23.000Z" itemprop="datePublished">2015-12-29</time>
@@ -105,8 +304,8 @@ redis&amp;gt; HSET myhash field1 &quot;H">
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Go语言使用Redigo操作Redis
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/redis-redigo.html">Go语言使用Redigo操作Redis</a>
     </h1>
   
 
@@ -143,35 +342,108 @@ redis&amp;gt; HSET myhash field1 &quot;H">
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/server/command.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Linux服务器命令
-        
-      </div>
-    </a>
-  
-  
-    <a href="/go/basic.html" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Go语言基础</div>
-    </a>
-  
-</nav>
+</article>
 
+
+  
+    <article id="post-go/basic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/basic.html" class="article-date">
+  <time datetime="2015-12-28T10:02:54.000Z" itemprop="datePublished">2015-12-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/basic.html">Go语言基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Go数据类型</p>
+</blockquote>
+<pre><code>int
+int8
+int16
+int32 -2147483648 ~ 2147483647
+int64 -9223372036854775808 ~ 9223372036854775807
+
+uint
+uint8
+uint16
+uint32
+uint64
+
+rune // 是 int32 的别名
+byte // 是 uint8 的别名
+
+float32
+float64
+
+string // 一对双引号( &quot;&quot; )或反引号( `` )来定义
+
+bool // 值是 true 或 false 默认为 false
+
+array
+slice
+map
+</code></pre><blockquote>
+<p>Go 数据存储</p>
+</blockquote>
+<p><img src="/up/201512/byte.png" alt="一张图看懂数据结构存储" title="一张图看懂数据结构存储"></p>
+<blockquote>
+<p>关于零值</p>
+</blockquote>
+<pre><code>所指并非是空值,而是一种“变量未填充前”的默认值,通常为 0
+int 0
+int8 0
+int32 0
+int64 0
+uint 0x0
+rune 0 // rune 的实际类型是 int32
+byte 0x0 // byte 的实际类型是 uint8
+float32 0 // 长度为 4 byte
+float64 0 // 长度为 8 byte
+bool false
+string &quot;&quot;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/basic.html" data-id="ciznja34v0000a0fyk14ytycb" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/basic.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/基础/">基础</a></li></ul>
+
+    </footer>
+  </div>
   
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/list/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/list/2/">2</a><a class="page-number" href="/list/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/list/5/">5</a><a class="extend next" rel="next" href="/list/5/">下一页 &raquo;</a>
+  </nav>
+
 </section>
         
           <aside id="sidebar">
@@ -291,13 +563,11 @@ redis&amp;gt; HSET myhash field1 &quot;H">
 <script>
   var disqus_shortname = 'tnkliu';
   
-  var disqus_url = 'http://www.tnkliu.com/go/redis-redigo.html';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

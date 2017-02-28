@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: RPM | TnkLiu</title>
+  <title>Category: go | TnkLiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Think Blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TnkLiu">
-<meta property="og:url" content="http://www.tnkliu.com/tag/RPM/index.html">
+<meta property="og:url" content="http://www.tnkliu.com/go/list/2/index.html">
 <meta property="og:site_name" content="TnkLiu">
 <meta property="og:description" content="Think Blog">
 <meta name="twitter:card" content="summary">
@@ -74,38 +74,103 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archive/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/server/centos-rpm.html" class="archive-article-date">
-  <time datetime="2016-01-24T13:55:21.000Z" itemprop="datePublished">1月 24</time>
+    <article id="post-go/basic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/basic.html" class="article-date">
+  <time datetime="2015-12-28T10:02:54.000Z" itemprop="datePublished">2015-12-28</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/server/centos-rpm.html">CentOS RPM 命令</a>
+      <a class="article-title" href="/go/basic.html">Go语言基础</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Go数据类型</p>
+</blockquote>
+<pre><code>int
+int8
+int16
+int32 -2147483648 ~ 2147483647
+int64 -9223372036854775808 ~ 9223372036854775807
+
+uint
+uint8
+uint16
+uint32
+uint64
+
+rune // 是 int32 的别名
+byte // 是 uint8 的别名
+
+float32
+float64
+
+string // 一对双引号( &quot;&quot; )或反引号( `` )来定义
+
+bool // 值是 true 或 false 默认为 false
+
+array
+slice
+map
+</code></pre><blockquote>
+<p>Go 数据存储</p>
+</blockquote>
+<p><img src="/up/201512/byte.png" alt="一张图看懂数据结构存储" title="一张图看懂数据结构存储"></p>
+<blockquote>
+<p>关于零值</p>
+</blockquote>
+<pre><code>所指并非是空值,而是一种“变量未填充前”的默认值,通常为 0
+int 0
+int8 0
+int32 0
+int64 0
+uint 0x0
+rune 0 // rune 的实际类型是 int32
+byte 0x0 // byte 的实际类型是 uint8
+float32 0 // 长度为 4 byte
+float64 0 // 长度为 8 byte
+bool false
+string &quot;&quot;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/basic.html" data-id="ciznja34v0000a0fyk14ytycb" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/basic.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/基础/">基础</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/go/">&laquo; 上一页</a><a class="page-number" href="/go/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
