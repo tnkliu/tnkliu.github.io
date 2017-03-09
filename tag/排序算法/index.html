@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: go | TnkLiu</title>
+  <title>Tag: 排序算法 | TnkLiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Think Blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TnkLiu">
-<meta property="og:url" content="http://www.tnkliu.com/go/list/2/index.html">
+<meta property="og:url" content="http://www.tnkliu.com/tag/排序算法/index.html">
 <meta property="og:site_name" content="TnkLiu">
 <meta property="og:description" content="Think Blog">
 <meta name="twitter:card" content="summary">
@@ -74,162 +74,38 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-go/redis-redigo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/redis-redigo.html" class="article-date">
-  <time datetime="2015-12-28T16:26:23.000Z" itemprop="datePublished">2015-12-29</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archive/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/go/sort.html" class="archive-article-date">
+  <time datetime="2017-03-08T07:58:38.000Z" itemprop="datePublished">3月 8</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/go/redis-redigo.html">Go语言使用Redigo操作Redis</a>
+      <a class="archive-article-title" href="/go/sort.html">Go语言排序算法</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>操作Redis Redigo</strong></p>
-<p>首先看看 <a href="http://redis.io/commands" target="_blank" rel="external">http://redis.io/commands</a><br>这里是关于Redis的各项命令<br>Redigo这个第三方库是依照命令关键词来get和set数据的</p>
-<blockquote>
-<p>我们来找找HSET（我们要往Redis中添加一条hash类型的数据），<a href="http://redis.io/commands/hset" target="_blank" rel="external">http://redis.io/commands/hset</a> 点进去会看到实例命令</p>
-</blockquote>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">redis&gt; HSET myhash field1 <span class="string">"Hello"</span></div><div class="line">(<span class="name">integer</span>) <span class="number">1</span></div><div class="line">redis&gt; HGET myhash field1</div><div class="line"><span class="string">"Hello"</span></div><div class="line">redis&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>然后我们来写Go代码</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"github.com/garyburd/redigo/redis"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    cli, err := redis.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:6379"</span>)</div><div class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">        fmt.Println(err)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">defer</span> cli.Close()</div><div class="line"></div><div class="line">    <span class="comment">// 这里是添加数据</span></div><div class="line">    val, err := cli.Do(<span class="string">"HSET"</span>, <span class="string">"myhash"</span>, <span class="string">"field1"</span>, <span class="string">"Hello"</span>)</div><div class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">        fmt.Println(err)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 这里是获取数据</span></div><div class="line">    val, err = redis.String(cli.Do(<span class="string">"HGET"</span>, <span class="string">"myhash"</span>, <span class="string">"field1"</span>))</div><div class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">        fmt.Println(err)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    fmt.Println(val)</div><div class="line"></div><div class="line">    <span class="comment">// 如果想查询hash表中的所有数据，可以用一个for循环出内容</span></div><div class="line">    <span class="comment">// 我们先多添加一条数据</span></div><div class="line">    val2, err := cli.Do(<span class="string">"HSET"</span>, <span class="string">"myhash"</span>, <span class="string">"field2"</span>, <span class="string">"World"</span>)</div><div class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">        fmt.Println(err)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    fmt.Println(val2)</div><div class="line">    <span class="comment">// 然后开始查询</span></div><div class="line">    varr, err := redis.Values(cli.Do(<span class="string">"HGETALL"</span>, <span class="string">"myhash"</span>))</div><div class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">        fmt.Println(err)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> varr &#123;</div><div class="line">        fmt.Println(k, <span class="keyword">string</span>(v.([]<span class="keyword">byte</span>))) <span class="comment">// 类型需要转换成字符串</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>下面是输出结果</p>
-</blockquote>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 查询一条数据</span></div><div class="line">Hello</div><div class="line"></div><div class="line"><span class="comment">// 这个是后添加那条数据的打印，可忽略</span></div><div class="line"><span class="number">0</span></div><div class="line"></div><div class="line"><span class="comment">// 查询所有数据</span></div><div class="line"><span class="number">0</span> field1</div><div class="line"><span class="number">1</span> Hello</div><div class="line"><span class="number">2</span> field2</div><div class="line"><span class="number">3</span> World</div></pre></td></tr></table></figure>
-<p>可见确实很便捷明了，官方也推荐使用Redigo这个第三方库操作Redis数据<br>Redigo的GitHub地址 <a href="https://github.com/garyburd/redigo" target="_blank" rel="external">https://github.com/garyburd/redigo</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/redis-redigo.html" data-id="ciznja3510001a0fy6v15z4w7" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/redis-redigo.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Redigo/">Redigo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Redis/">Redis</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
 </article>
-
-
   
-    <article id="post-go/basic" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/basic.html" class="article-date">
-  <time datetime="2015-12-28T10:02:54.000Z" itemprop="datePublished">2015-12-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/basic.html">Go语言基础</a>
-    </h1>
+    </div></section>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Go数据类型</p>
-</blockquote>
-<pre><code>int
-int8
-int16
-int32 -2147483648 ~ 2147483647
-int64 -9223372036854775808 ~ 9223372036854775807
-
-uint
-uint8
-uint16
-uint32
-uint64
-
-rune // 是 int32 的别名
-byte // 是 uint8 的别名
-
-float32
-float64
-
-string // 一对双引号( &quot;&quot; )或反引号( `` )来定义
-
-bool // 值是 true 或 false 默认为 false
-
-array
-slice
-map
-</code></pre><blockquote>
-<p>Go 数据存储</p>
-</blockquote>
-<p><img src="/up/201512/byte.png" alt="一张图看懂数据结构存储" title="一张图看懂数据结构存储"></p>
-<blockquote>
-<p>关于零值</p>
-</blockquote>
-<pre><code>所指并非是空值,而是一种“变量未填充前”的默认值,通常为 0
-int 0
-int8 0
-int32 0
-int64 0
-uint 0x0
-rune 0 // rune 的实际类型是 int32
-byte 0x0 // byte 的实际类型是 uint8
-float32 0 // 长度为 4 byte
-float64 0 // 长度为 8 byte
-bool false
-string &quot;&quot;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/basic.html" data-id="ciznja34v0000a0fyk14ytycb" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/basic.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/基础/">基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/go/">&laquo; 上一页</a><a class="page-number" href="/go/">1</a><span class="page-number current">2</span>
-  </nav>
 
 </section>
         

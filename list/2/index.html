@@ -74,6 +74,171 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-server/git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/server/git.html" class="article-date">
+  <time datetime="2016-07-21T04:09:18.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/server/">服务器</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/server/git.html">Git 命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li>从远程下载</li>
+</ul>
+<pre><code>git clone xxx
+</code></pre><ul>
+<li>设置邮箱</li>
+</ul>
+<pre><code>git config user.email &quot;xxx@xxx.com&quot;
+</code></pre><ul>
+<li>设置用户名</li>
+</ul>
+<pre><code>git config user.name &quot;xxx&quot;
+</code></pre><ul>
+<li>设置提交到远程安全级别（current是当前分支 matching是所有分支）</li>
+</ul>
+<pre><code>git config push.default current
+</code></pre><ul>
+<li>把新建的分支初次提交到远程</li>
+</ul>
+<pre><code>git push --set-upstream origin xxx
+</code></pre><ul>
+<li>查看仓库信息</li>
+</ul>
+<pre><code>git config --list
+</code></pre><ul>
+<li>查看分支</li>
+</ul>
+<pre><code>git branch
+</code></pre><ul>
+<li>查看所有的分支包括远程的</li>
+</ul>
+<pre><code>git branch -a
+</code></pre><ul>
+<li>新建分支</li>
+</ul>
+<pre><code>git branch xxx
+</code></pre><ul>
+<li>切换分支</li>
+</ul>
+<pre><code>git checkout xxx
+</code></pre><ul>
+<li>新建同时切换分支</li>
+</ul>
+<pre><code>git checkout -b xxx
+</code></pre><ul>
+<li>切换到远程分支</li>
+</ul>
+<pre><code>git branch remotes/origin/xxx
+</code></pre><ul>
+<li>合并其他分支到当前分支</li>
+</ul>
+<pre><code>git merge xxx
+</code></pre><ul>
+<li>删除分支</li>
+</ul>
+<pre><code>git branch -d xxx
+</code></pre><ul>
+<li>删除远程分支</li>
+</ul>
+<pre><code>git push origin --delete xxx
+</code></pre><ul>
+<li>如果从远程 clone 下代码后，需要在远程某一个分支进行开发，可以如下操作</li>
+</ul>
+<pre><code>git clone xxx
+git checkout -b xxx
+git branch --set-upstream-to=origin/xxx xxx
+git pull
+git push
+</code></pre><ul>
+<li>把本地分支提交到 Github 上</li>
+</ul>
+<pre><code>mkdir xxx
+cd xxx
+echo &quot;# xxx&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/xxx/xxx.git
+git push -u origin master
+</code></pre><ul>
+<li>本地创建 Git 仓库</li>
+</ul>
+<pre><code>git init --bare xxx.git
+</code></pre><ul>
+<li>添加远程仓库</li>
+</ul>
+<pre><code>git remote add origin https://xxx.git
+</code></pre><ul>
+<li>取消对文件的修改</li>
+</ul>
+<pre><code>git checkout -- &lt;xxxfile&gt;
+</code></pre><ul>
+<li>取消上一次的add操作</li>
+</ul>
+<pre><code>git reset HEAD
+</code></pre><ul>
+<li>本地仓库文件误删恢复</li>
+</ul>
+<pre><code>git log // 找到提交的 commitid
+git reset --hard commitid
+</code></pre><ul>
+<li>git常用操作命令</li>
+</ul>
+<pre><code>git log 查看log
+git reset --hard xxxxxxxxxxxxxxxxxxxx 恢复版本到指定log
+git pull 提交到远程
+git status 查看状态
+git checkout -b new_xxx 创建分支并切换到分支
+git push --set-upstream origin new_xxx 提交新建的本地分支到远程
+git branch -d xxx 删除分支
+git branch -D xxx 强制删除分支
+git push origin --delete xxx 删除远程分支
+</code></pre><ul>
+<li>git初次提交到github</li>
+</ul>
+<pre><code>echo &quot;# test readme&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:xxx/xxx.git
+git push -u origin master
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/server/git.html" data-id="ciznja360000ta0fy2ff4lfk7" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/server/git.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-server/siege" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/server/siege.html" class="article-date">
@@ -316,94 +481,6 @@
 
 
   
-    <article id="post-server/rsync" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/server/rsync.html" class="article-date">
-  <time datetime="2016-02-02T16:58:30.000Z" itemprop="datePublished">2016-02-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/server/">服务器</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/server/rsync.html">配置Rsync服务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装rsync或者使用系统默认的rsync，然后做如下的配置：</p>
-<p>vim /etc/rsyncd.conf</p>
-<pre><code>pid file = /etc/rsyncd/rsyncd.pid
-port = 873
-address = 192.168.1.2
-uid = root
-gid = root
-use chroot = yes
-read only = no
-hosts allow = 192.168.1.0/24
-hosts deny = *
-max connections = 5
-motd file = /etc/rsyncd/rsyncd.motd
-log file = /etc/rsyncd/rsyncd.log
-log format = %t %a %m %f %b
-timeout = 300
-secrets file = /etc/rsyncd/rsyncd.secrets
-[www]
-path = /www
-comment = rsync files
-auth users = root
-list = true
-ignore errors
-secrets file = /etc/rsyncd/rsyncd.secrets
-[api]
-path = /api
-comment = rsync files
-auth users = root
-list = true
-ignore errors
-secrets file = /etc/rsyncd/rsyncd.secrets
-</code></pre><p>如果没有 /etc/rsyncd/ 目录，可以自行创建。<br>然后新建并且添加如下的内容：</p>
-<p>vim /etc/rsyncd/rsyncd.motd</p>
-<pre><code>Hello World
-</code></pre><p>vim /etc/rsyncd/rsyncd.password</p>
-<pre><code>123456
-</code></pre><p>vim /etc/rsyncd/rsyncd.secrets</p>
-<pre><code>root:123456
-</code></pre><p>编辑好文件后，这几个文件权限都变成 <code>600</code> 权限，不然会遇到很多坑。<br>然后把上面的文件可以复制成多份放到不同的服务器上，只需要修改 /etc/rsyncd.conf 中的address为对应的服务器IP即可。</p>
-<p>启动服务</p>
-<pre><code>/usr/bin/rsync --daemon --config=/etc/rsyncd.conf
-</code></pre><p>执行同步</p>
-<pre><code>/usr/bin/rsync -vzrtopg --delete --exclude=&quot;log&quot; --progress  /www/ root@192.168.1.3::www  --password-file=/etc/rsyncd/rsyncd.password &gt;&gt;/etc/rsyncd/rsyncd.log 2&gt;&amp;1
-</code></pre><p>就可以把IP为 192.168.1.2 的 www 下的内容同步到 192.168.1.3 的 www 节点了。<br>有个点需要注意下，就是上面设置的端口 <code>873</code> ，记得需要对防火墙授权。<br>然后密码可以随意设置，只需要保证 password 和 secrets 文件中的密码一样即可。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/rsync.html" data-id="ciznja3680015a0fyxjl6rdx5" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/server/rsync.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Rsync/">Rsync</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -419,7 +496,7 @@ secrets file = /etc/rsyncd/rsyncd.secrets
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -429,7 +506,7 @@ secrets file = /etc/rsyncd/rsyncd.secrets
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vsftpd/">vsftpd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vsftpd/">vsftpd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -439,7 +516,7 @@ secrets file = /etc/rsyncd/rsyncd.secrets
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tag/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
+      <a href="/tag/CentOS/" style="font-size: 16.67px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
     </div>
   </div>
 
@@ -448,7 +525,7 @@ secrets file = /etc/rsyncd/rsyncd.secrets
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -459,6 +536,10 @@ secrets file = /etc/rsyncd/rsyncd.secrets
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/go/sort.html">Go语言排序算法</a>
+          </li>
         
           <li>
             <a href="/server/user.html">Linux 设置用户</a>
@@ -474,10 +555,6 @@ secrets file = /etc/rsyncd/rsyncd.secrets
         
           <li>
             <a href="/server/mysql.html">MySQL命令</a>
-          </li>
-        
-          <li>
-            <a href="/server/git.html">Git 命令</a>
           </li>
         
       </ul>

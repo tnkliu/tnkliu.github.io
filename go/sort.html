@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: go | TnkLiu</title>
+  <title>Go语言排序算法 | TnkLiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Think Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TnkLiu">
-<meta property="og:url" content="http://www.tnkliu.com/go/index.html">
+  <meta name="description" content="冒泡排序对数组从小到大排序，整体思路是先循环数组，然后再嵌套循环，两两数据对比大小，满足条件交换位置，直到循环完成
+package mainimport (    &quot;fmt&quot;    &quot;time&quot;)func main() &amp;#123;    arr := []int&amp;#123;5, 6, 2, 4, 7, 9, 3, 1, 8&amp;#125;    start := time.Now()    // I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言排序算法">
+<meta property="og:url" content="http://www.tnkliu.com/go/sort.html">
 <meta property="og:site_name" content="TnkLiu">
-<meta property="og:description" content="Think Blog">
+<meta property="og:description" content="冒泡排序对数组从小到大排序，整体思路是先循环数组，然后再嵌套循环，两两数据对比大小，满足条件交换位置，直到循环完成
+package mainimport (    &quot;fmt&quot;    &quot;time&quot;)func main() &amp;#123;    arr := []int&amp;#123;5, 6, 2, 4, 7, 9, 3, 1, 8&amp;#125;    start := time.Now()    // I">
+<meta property="og:updated_time" content="2017-03-09T08:44:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TnkLiu">
-<meta name="twitter:description" content="Think Blog">
+<meta name="twitter:title" content="Go语言排序算法">
+<meta name="twitter:description" content="冒泡排序对数组从小到大排序，整体思路是先循环数组，然后再嵌套循环，两两数据对比大小，满足条件交换位置，直到循环完成
+package mainimport (    &quot;fmt&quot;    &quot;time&quot;)func main() &amp;#123;    arr := []int&amp;#123;5, 6, 2, 4, 7, 9, 3, 1, 8&amp;#125;    start := time.Now()    // I">
   
     <link rel="alternate" href="/rss.xml" title="TnkLiu" type="application/atom+xml">
   
@@ -72,9 +76,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-go/sort" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-go/sort" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/go/sort.html" class="article-date">
   <time datetime="2017-03-08T07:58:38.000Z" itemprop="datePublished">2017-03-08</time>
@@ -91,8 +93,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/sort.html">Go语言排序算法</a>
+    <h1 class="article-title" itemprop="name">
+      Go语言排序算法
     </h1>
   
 
@@ -121,225 +123,26 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-go/type" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/type.html" class="article-date">
-  <time datetime="2016-07-01T07:58:38.000Z" itemprop="datePublished">2016-07-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/type.html">Go语言类型转换</a>
-    </h1>
+    <a href="/server/user.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Linux 设置用户</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="整型转字符串"><a href="#整型转字符串" class="headerlink" title="整型转字符串"></a>整型转字符串</h3><h4 id="int-转-string"><a href="#int-转-string" class="headerlink" title="int 转 string"></a>int 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatInt(<span class="keyword">int64</span>(i), <span class="number">10</span>)</div><div class="line"><span class="comment">// s = strconv.Itoa(i) // 也可以这么写</span></div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="int32-转-string"><a href="#int32-转-string" class="headerlink" title="int32 转 string"></a>int32 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int32</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatInt(<span class="keyword">int64</span>(i), <span class="number">10</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="int64-转-string"><a href="#int64-转-string" class="headerlink" title="int64 转 string"></a>int64 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatInt(i, <span class="number">10</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="uint-转-string"><a href="#uint-转-string" class="headerlink" title="uint 转 string"></a>uint 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">uint</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatUint(<span class="keyword">uint64</span>(i), <span class="number">10</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="uint32-转-string"><a href="#uint32-转-string" class="headerlink" title="uint32 转 string"></a>uint32 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">uint32</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatUint(<span class="keyword">uint64</span>(i), <span class="number">10</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="uint64-转-string"><a href="#uint64-转-string" class="headerlink" title="uint64 转 string"></a>uint64 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">uint64</span> = <span class="number">100</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatUint(i, <span class="number">10</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h3 id="字符串转整型"><a href="#字符串转整型" class="headerlink" title="字符串转整型"></a>字符串转整型</h3><h4 id="string-转-int"><a href="#string-转-int" class="headerlink" title="string 转 int"></a>string 转 int</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseInt(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">int</span>(i64)</div><div class="line"><span class="comment">// i, err := strconv.Atoi(s) // 也可以这么写</span></div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h4 id="string-转-int32"><a href="#string-转-int32" class="headerlink" title="string 转 int32"></a>string 转 int32</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int32</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseInt(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">int32</span>(i64)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h4 id="string-转-int64"><a href="#string-转-int64" class="headerlink" title="string 转 int64"></a>string 转 int64</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span> = <span class="number">0</span></div><div class="line">i, err := strconv.ParseInt(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h4 id="string-转-uint"><a href="#string-转-uint" class="headerlink" title="string 转 uint"></a>string 转 uint</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">uint</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseUint(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">uint</span>(i64)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h4 id="string-转-uint32"><a href="#string-转-uint32" class="headerlink" title="string 转 uint32"></a>string 转 uint32</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">uint32</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseUint(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">uint32</span>(i64)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h4 id="string-转-uint64"><a href="#string-转-uint64" class="headerlink" title="string 转 uint64"></a>string 转 uint64</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">uint64</span> = <span class="number">0</span></div><div class="line">i64, err := strconv.ParseUint(s, <span class="number">10</span>, <span class="number">0</span>)</div><div class="line">i = <span class="keyword">uint64</span>(i64)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">  <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(i)</div></pre></td></tr></table></figure>
-<h3 id="浮点型转字符串"><a href="#浮点型转字符串" class="headerlink" title="浮点型转字符串"></a>浮点型转字符串</h3><h4 id="float32-转-string"><a href="#float32-转-string" class="headerlink" title="float32 转 string"></a>float32 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float32</span> = <span class="number">100.123456789123456789</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatFloat(<span class="keyword">float64</span>(f), <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">32</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h4 id="float64-转-string"><a href="#float64-转-string" class="headerlink" title="float64 转 string"></a>float64 转 string</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">100.123456789123456789</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">""</span></div><div class="line">s = strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">64</span>)</div><div class="line">fmt.Println(s)</div></pre></td></tr></table></figure>
-<h3 id="字符串转浮点型"><a href="#字符串转浮点型" class="headerlink" title="字符串转浮点型"></a>字符串转浮点型</h3><h4 id="string-转-float64"><a href="#string-转-float64" class="headerlink" title="string 转 float64"></a>string 转 float64</h4><figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"100.123456789123456789"</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">0</span></div><div class="line">f, err := strconv.ParseFloat(s, <span class="number">64</span>)</div><div class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="built_in">panic</span>(err)</div><div class="line">&#125;</div><div class="line">fmt.Println(f)</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/type.html" data-id="ciznja35e0009a0fyxm5c4vn3" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/type.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/类型转换/">类型转换</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-go/reflect" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/reflect.html" class="article-date">
-  <time datetime="2016-03-24T07:04:13.000Z" itemprop="datePublished">2016-03-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/reflect.html">Go语言reflect包备注</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>来一个简单的实例</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> MyType <span class="keyword">struct</span> &#123;</div><div class="line">    Id   <span class="keyword">int</span></div><div class="line">    Name <span class="keyword">string</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    d := MyType&#123;<span class="number">1</span>, <span class="string">"Hello"</span>&#125;</div><div class="line">    t := reflect.TypeOf(d)</div><div class="line">    n := t.NumField()</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</div><div class="line">        fmt.Println(t.Field(i).Name)</div><div class="line">        fmt.Println(t.Field(i).Type)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出</span></div><div class="line"><span class="comment">// Id</span></div><div class="line"><span class="comment">// int</span></div><div class="line"><span class="comment">// Name</span></div><div class="line"><span class="comment">// string</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/reflect.html" data-id="ciznja3590005a0fy0c3mfhb6" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/reflect.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/反射/">反射</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-go/strings" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/strings.html" class="article-date">
-  <time datetime="2016-01-15T06:56:32.000Z" itemprop="datePublished">2016-01-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/strings.html">Go语言strings包备注</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>strings.Split<br>把字符串进行分割</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    str := <span class="string">"Hello-World"</span></div><div class="line">    ret := strings.Split(str, <span class="string">"-"</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 [Hello World]</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>strings.Join<br>把数组进行合并</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    arr := []<span class="keyword">string</span>&#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>&#125;</div><div class="line">    ret := strings.Join(arr, <span class="string">"-"</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 Hello-World</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>strings.Replace<br>字符串替换，最后一个参数是替换多少个匹配字符，如果全部替换用 -1</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"strings"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    str := <span class="string">"Hello-World"</span></div><div class="line">    ret := strings.Replace(str, <span class="string">"-"</span>, <span class="string">" "</span>, <span class="number">-1</span>)</div><div class="line">    fmt.Println(ret)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出 Hello World</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/strings.html" data-id="ciznja35a0006a0fyatjws1is" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/strings.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/字符串/">字符串</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-go/pointer-reference" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/go/pointer-reference.html" class="article-date">
-  <time datetime="2016-01-04T04:43:38.000Z" itemprop="datePublished">2016-01-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/go/">Go语言</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go/pointer-reference.html">Go语言指针和引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>指针和引用容易混淆，看看一个简单的例子</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(p *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">    *p = *p + <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> *p</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    i := <span class="number">1</span></div><div class="line">    fmt.Println(<span class="string">"i = "</span>, i)   <span class="comment">// i 等于 1</span></div><div class="line">    r := test(&amp;i)            <span class="comment">// 传i的地址</span></div><div class="line">    fmt.Println(<span class="string">"i+1 = "</span>, r) <span class="comment">// r 等于 2</span></div><div class="line">    fmt.Println(<span class="string">"i = "</span>, i)   <span class="comment">// i 等于 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出结果</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">i =  <span class="number">1</span></div><div class="line">i+<span class="number">1</span> =  <span class="number">2</span></div><div class="line">i =  <span class="number">2</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/pointer-reference.html" data-id="ciznja3580004a0fyq57w3ylk" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/go/pointer-reference.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/引用/">引用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/指针/">指针</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/go/list/2/">2</a><a class="extend next" rel="next" href="/go/list/2/">下一页 &raquo;</a>
-  </nav>
-
+</section>
 </section>
         
           <aside id="sidebar">
@@ -459,11 +262,13 @@
 <script>
   var disqus_shortname = 'tnkliu';
   
+  var disqus_url = 'http://www.tnkliu.com/go/sort.html';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

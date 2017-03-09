@@ -74,6 +74,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-go/sort" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/sort.html" class="article-date">
+  <time datetime="2017-03-08T07:58:38.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/sort.html">Go语言排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>对数组从小到大排序，整体思路是先循环数组，然后再嵌套循环，两两数据对比大小，满足条件交换位置，直到循环完成</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"time"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    arr := []<span class="keyword">int</span>&#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">8</span>&#125;</div><div class="line">    start := time.Now()</div><div class="line">    <span class="comment">// InsertionSort_1(arr)</span></div><div class="line">    QuickSort_2(arr, <span class="number">0</span>, <span class="built_in">len</span>(arr)<span class="number">-1</span>)</div><div class="line">    fmt.Println(time.Now().Sub(start))</div><div class="line">    fmt.Println(arr)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 冒泡排序</span></div><div class="line"><span class="comment">// 方法一，排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了81次</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort_1</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; aLen; i++ &#123;</div><div class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; aLen; j++ &#123;</div><div class="line">            k++</div><div class="line">            <span class="keyword">if</span> arr[i] &lt; arr[j] &#123;</div><div class="line">                arr[j], arr[i] = arr[i], arr[j]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法二 排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了36次，效率更高</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort_2</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; aLen; i++ &#123;</div><div class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt; aLen-i; j++ &#123;</div><div class="line">            k++</div><div class="line">            <span class="keyword">if</span> arr[j] &lt; arr[j<span class="number">-1</span>] &#123;</div><div class="line">                arr[j], arr[j<span class="number">-1</span>] = arr[j<span class="number">-1</span>], arr[j]</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法三 排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了36次，效率和上面一样</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubbleSort_3</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    flag := <span class="literal">true</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; aLen<span class="number">-1</span>; i++ &#123;</div><div class="line">        flag = <span class="literal">true</span></div><div class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; aLen-i<span class="number">-1</span>; j++ &#123;</div><div class="line">            k++</div><div class="line">            <span class="keyword">if</span> arr[j] &gt; arr[j+<span class="number">1</span>] &#123;</div><div class="line">                arr[j], arr[j+<span class="number">1</span>] = arr[j+<span class="number">1</span>], arr[j]</div><div class="line">                flag = <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> flag == <span class="literal">true</span> &#123;</div><div class="line">            <span class="keyword">break</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>对数组从小到大排序，整体思路是先循环数组，然后再嵌套循环，两两数据对比大小，满足条件交换位置，直到循环完成<br>参考地址 <a href="http://www.w3cmark.com/2017/selection-sort.html" target="_blank" rel="external">http://www.w3cmark.com/2017/selection-sort.html</a></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 方法一 遍历数组，默认第一个数是最大数，然后嵌套循环对比这个最大数，只要比最大数大，那么相互交换位置 排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了36次</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectSort_1</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; aLen; i++ &#123;</div><div class="line">        max := <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt; aLen-i; j++ &#123;</div><div class="line">            k++</div><div class="line">            <span class="keyword">if</span> arr[j] &gt; arr[max] &#123;</div><div class="line">                max = j</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        arr[aLen-i<span class="number">-1</span>], arr[max] = arr[max], arr[aLen-i<span class="number">-1</span>]</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法二 遍历数组，默认第一个数是最小数，然后嵌套循环对比这个最小数，只要比这个最小数大，那么相互交换位置 排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了36次</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectSort_2</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; aLen<span class="number">-1</span>; i++ &#123;</div><div class="line">        min := i</div><div class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; aLen; j++ &#123;</div><div class="line">            k++</div><div class="line">            <span class="keyword">if</span> arr[min] &gt; arr[j] &#123;</div><div class="line">                min = j</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        arr[i], arr[min] = arr[min], arr[i]</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>先循环数组，并嵌套循环，判断大小，如果后面某一个数字比前面某一个数字小，那么相互交换位置<br>参考地址 <a href="http://blog.bpcoder.com/2015/12/insertion-sort/" target="_blank" rel="external">http://blog.bpcoder.com/2015/12/insertion-sort/</a></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 排序 []int&#123;5, 6, 2, 4, 7, 9, 3, 1, 8&#125; 循环了17次 比上面的效率都高，执行时间也更短</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">InsertionSort_1</span><span class="params">(arr []<span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    aLen := <span class="built_in">len</span>(arr)</div><div class="line">    k := <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; aLen; i++ &#123;</div><div class="line">        tmp := arr[i]</div><div class="line">        j := i - <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> j &gt; <span class="number">-1</span> &amp;&amp; arr[j] &gt; tmp &#123;</div><div class="line">            k++</div><div class="line">            arr[j+<span class="number">1</span>] = arr[j]</div><div class="line">            j--</div><div class="line">        &#125;</div><div class="line">        arr[j+<span class="number">1</span>] = tmp</div><div class="line">    &#125;</div><div class="line">    fmt.Println(arr, k)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>参考地址 <a href="https://www.kancloud.cn/digest/batu-go/153531" target="_blank" rel="external">https://www.kancloud.cn/digest/batu-go/153531</a></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 循环数组，把数组分成两部分，其中一部分的数都比另外一部分都小，然后实现快速排序，快速排序效率极高，远远高于上面的算法</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort_1</span><span class="params">(arr []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    tmp := arr[left]</div><div class="line">    p := left</div><div class="line">    i, j := left, right</div><div class="line">    <span class="keyword">for</span> i &lt;= j &#123;</div><div class="line">        <span class="keyword">for</span> j &gt;= p &amp;&amp; arr[j] &gt;= tmp &#123;</div><div class="line">            j--</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> j &gt;= p &#123;</div><div class="line">            arr[p] = arr[j]</div><div class="line">            p = j</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> i &lt;= p &amp;&amp; arr[i] &lt;= tmp &#123;</div><div class="line">            i++</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> i &lt;= p &#123;</div><div class="line">            arr[p] = arr[i]</div><div class="line">            p = i</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    arr[p] = tmp</div><div class="line">    <span class="keyword">if</span> p-left &gt; <span class="number">1</span> &#123;</div><div class="line">        QuickSort_1(arr, left, p<span class="number">-1</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> right-p &gt; <span class="number">1</span> &#123;</div><div class="line">        QuickSort_1(arr, p+<span class="number">1</span>, right)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort_2</span><span class="params">(arr []<span class="keyword">int</span>, left, right <span class="keyword">int</span>)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> left &lt; right &#123;</div><div class="line">        key := arr[(left+right)/<span class="number">2</span>]</div><div class="line">        i := left</div><div class="line">        j := right</div><div class="line"></div><div class="line">        <span class="keyword">for</span> &#123;</div><div class="line">            <span class="keyword">for</span> arr[i] &lt; key &#123;</div><div class="line">                i++</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> arr[j] &gt; key &#123;</div><div class="line">                j--</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> i &gt;= j &#123;</div><div class="line">                <span class="keyword">break</span></div><div class="line">            &#125;</div><div class="line">            arr[i], arr[j] = arr[j], arr[i]</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        QuickSort_2(arr, left, i<span class="number">-1</span>)</div><div class="line">        QuickSort_2(arr, j+<span class="number">1</span>, right)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/sort.html" data-id="cj025czka0000yjfyrd33xtpr" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/sort.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/排序算法/">排序算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-server/user" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/server/user.html" class="article-date">
@@ -304,171 +355,6 @@
 
 
   
-    <article id="post-server/git" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/server/git.html" class="article-date">
-  <time datetime="2016-07-21T04:09:18.000Z" itemprop="datePublished">2016-07-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/server/">服务器</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/server/git.html">Git 命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
-<li>从远程下载</li>
-</ul>
-<pre><code>git clone xxx
-</code></pre><ul>
-<li>设置邮箱</li>
-</ul>
-<pre><code>git config user.email &quot;xxx@xxx.com&quot;
-</code></pre><ul>
-<li>设置用户名</li>
-</ul>
-<pre><code>git config user.name &quot;xxx&quot;
-</code></pre><ul>
-<li>设置提交到远程安全级别（current是当前分支 matching是所有分支）</li>
-</ul>
-<pre><code>git config push.default current
-</code></pre><ul>
-<li>把新建的分支初次提交到远程</li>
-</ul>
-<pre><code>git push --set-upstream origin xxx
-</code></pre><ul>
-<li>查看仓库信息</li>
-</ul>
-<pre><code>git config --list
-</code></pre><ul>
-<li>查看分支</li>
-</ul>
-<pre><code>git branch
-</code></pre><ul>
-<li>查看所有的分支包括远程的</li>
-</ul>
-<pre><code>git branch -a
-</code></pre><ul>
-<li>新建分支</li>
-</ul>
-<pre><code>git branch xxx
-</code></pre><ul>
-<li>切换分支</li>
-</ul>
-<pre><code>git checkout xxx
-</code></pre><ul>
-<li>新建同时切换分支</li>
-</ul>
-<pre><code>git checkout -b xxx
-</code></pre><ul>
-<li>切换到远程分支</li>
-</ul>
-<pre><code>git branch remotes/origin/xxx
-</code></pre><ul>
-<li>合并其他分支到当前分支</li>
-</ul>
-<pre><code>git merge xxx
-</code></pre><ul>
-<li>删除分支</li>
-</ul>
-<pre><code>git branch -d xxx
-</code></pre><ul>
-<li>删除远程分支</li>
-</ul>
-<pre><code>git push origin --delete xxx
-</code></pre><ul>
-<li>如果从远程 clone 下代码后，需要在远程某一个分支进行开发，可以如下操作</li>
-</ul>
-<pre><code>git clone xxx
-git checkout -b xxx
-git branch --set-upstream-to=origin/xxx xxx
-git pull
-git push
-</code></pre><ul>
-<li>把本地分支提交到 Github 上</li>
-</ul>
-<pre><code>mkdir xxx
-cd xxx
-echo &quot;# xxx&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin https://github.com/xxx/xxx.git
-git push -u origin master
-</code></pre><ul>
-<li>本地创建 Git 仓库</li>
-</ul>
-<pre><code>git init --bare xxx.git
-</code></pre><ul>
-<li>添加远程仓库</li>
-</ul>
-<pre><code>git remote add origin https://xxx.git
-</code></pre><ul>
-<li>取消对文件的修改</li>
-</ul>
-<pre><code>git checkout -- &lt;xxxfile&gt;
-</code></pre><ul>
-<li>取消上一次的add操作</li>
-</ul>
-<pre><code>git reset HEAD
-</code></pre><ul>
-<li>本地仓库文件误删恢复</li>
-</ul>
-<pre><code>git log // 找到提交的 commitid
-git reset --hard commitid
-</code></pre><ul>
-<li>git常用操作命令</li>
-</ul>
-<pre><code>git log 查看log
-git reset --hard xxxxxxxxxxxxxxxxxxxx 恢复版本到指定log
-git pull 提交到远程
-git status 查看状态
-git checkout -b new_xxx 创建分支并切换到分支
-git push --set-upstream origin new_xxx 提交新建的本地分支到远程
-git branch -d xxx 删除分支
-git branch -D xxx 强制删除分支
-git push origin --delete xxx 删除远程分支
-</code></pre><ul>
-<li>git初次提交到github</li>
-</ul>
-<pre><code>echo &quot;# test readme&quot; &gt;&gt; README.md
-git init
-git add README.md
-git commit -m &quot;first commit&quot;
-git remote add origin git@github.com:xxx/xxx.git
-git push -u origin master
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/git.html" data-id="ciznja360000ta0fy2ff4lfk7" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/server/git.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Git/">Git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -484,7 +370,7 @@ git push -u origin master
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/go/">Go语言</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/mine/">随笔</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/server/">服务器</a><span class="category-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -494,7 +380,7 @@ git push -u origin master
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vsftpd/">vsftpd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CentOS/">CentOS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Go/">Go</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/MySQL/">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/RPM/">RPM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redigo/">Redigo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Rsync/">Rsync</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Siege/">Siege</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Terminal/">Terminal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Web/">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vim/">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/vsftpd/">vsftpd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/反射/">反射</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/基础/">基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/字符串/">字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/引用/">引用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/排序算法/">排序算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/类型转换/">类型转换</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -504,7 +390,7 @@ git push -u origin master
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tag/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
+      <a href="/tag/CentOS/" style="font-size: 16.67px;">CentOS</a> <a href="/tag/Docker/" style="font-size: 10px;">Docker</a> <a href="/tag/Git/" style="font-size: 10px;">Git</a> <a href="/tag/Go/" style="font-size: 20px;">Go</a> <a href="/tag/Linux/" style="font-size: 10px;">Linux</a> <a href="/tag/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tag/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tag/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tag/PHP/" style="font-size: 10px;">PHP</a> <a href="/tag/RPM/" style="font-size: 10px;">RPM</a> <a href="/tag/Redigo/" style="font-size: 10px;">Redigo</a> <a href="/tag/Redis/" style="font-size: 10px;">Redis</a> <a href="/tag/Rsync/" style="font-size: 10px;">Rsync</a> <a href="/tag/Siege/" style="font-size: 10px;">Siege</a> <a href="/tag/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tag/Web/" style="font-size: 10px;">Web</a> <a href="/tag/vim/" style="font-size: 10px;">vim</a> <a href="/tag/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tag/反射/" style="font-size: 10px;">反射</a> <a href="/tag/基础/" style="font-size: 10px;">基础</a> <a href="/tag/字符串/" style="font-size: 10px;">字符串</a> <a href="/tag/引用/" style="font-size: 10px;">引用</a> <a href="/tag/指针/" style="font-size: 10px;">指针</a> <a href="/tag/排序算法/" style="font-size: 10px;">排序算法</a> <a href="/tag/类型转换/" style="font-size: 10px;">类型转换</a>
     </div>
   </div>
 
@@ -513,7 +399,7 @@ git push -u origin master
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -524,6 +410,10 @@ git push -u origin master
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/go/sort.html">Go语言排序算法</a>
+          </li>
         
           <li>
             <a href="/server/user.html">Linux 设置用户</a>
@@ -539,10 +429,6 @@ git push -u origin master
         
           <li>
             <a href="/server/mysql.html">MySQL命令</a>
-          </li>
-        
-          <li>
-            <a href="/server/git.html">Git 命令</a>
           </li>
         
       </ul>
