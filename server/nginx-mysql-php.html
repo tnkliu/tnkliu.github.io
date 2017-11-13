@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://www.tnkliu.com/server/nginx-mysql-php.html">
 <meta property="og:site_name" content="TnkLiu">
 <meta property="og:description" content="安装基础包yum -y install epel-releaseyum -y install vimyum -y install gcc gcc-c++ autoconf automake m4 patchyum -y install openssl openssl-develyum -y install pcre pcre-develyum -y install cmake ncurses nc">
-<meta property="og:updated_time" content="2016-11-19T14:59:58.000Z">
+<meta property="og:updated_time" content="2017-10-14T07:42:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云CentOS7.2安装Nginx1.10.1+MySQL5.7.13+PHP7.0.8">
 <meta name="twitter:description" content="安装基础包yum -y install epel-releaseyum -y install vimyum -y install gcc gcc-c++ autoconf automake m4 patchyum -y install openssl openssl-develyum -y install pcre pcre-develyum -y install cmake ncurses nc">
@@ -124,7 +124,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.13.tar.gz</div><div class="line">groupadd mysql</div><div class="line">useradd -g mysql mysql</div><div class="line">tar zxvf mysql-5.7.13.tar.gz</div><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/webserver/mysql -DMYSQL_DATADIR=/data/mysql -DSYSCONFDIR=/webserver/mysql/etc -DWITH_EXTRA_CHARSETS=all -DWITH_SSL=bundled -DWITH_EMBEDDED_SERVER=1 -DWITH_PARTITION=1 -DWITH_INNOBASE=1 -DWITH_MYISAMMRG=1 -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/<span class="built_in">local</span>/src</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
 </li>
 <li><p>继续操作mysql</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /webserver/mysql</div><div class="line">cp /webserver/mysql/support-files/mysql.server /etc/init.d/mysqld</div><div class="line">mkdir /webserver/mysql/etc</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/my.cnf</div><div class="line">chown -R mysql:mysql /webserver/mysql</div><div class="line">/webserver/mysql/bin/mysqld --initialize --user=mysql --basedir=/webserver/mysql --datadir=/data/mysql</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig --add mysqld</div><div class="line">chkconfig --level 345 mysqld on</div><div class="line">service mysqld start</div><div class="line">/webserver/mysql/bin/mysql -u root -p</div><div class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'设置为新的密码(登陆命令行输入的默认密码会在之前几步操作mysqld --initialize的时候提示)'</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /webserver/mysql</div><div class="line">cp /webserver/mysql/support-files/mysql.server /etc/init.d/mysqld</div><div class="line">mkdir /webserver/mysql/etc</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/</div><div class="line">cp /webserver/mysql/support-files/my-default.cnf /webserver/mysql/etc/my.cnf</div><div class="line">chown -R mysql:mysql /webserver/mysql</div><div class="line">/webserver/mysql/bin/mysqld --initialize --user=mysql --basedir=/webserver/mysql --datadir=/data/mysql</div><div class="line">如果是5.5版本可用 /webserver/mysql/scripts/mysql_install_db --defaults-file=/webserver/mysql/etc/my.cnf --user=mysql --basedir=/webserver/mysql --datadir=/data/mysql</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">chkconfig --add mysqld</div><div class="line">chkconfig --level 345 mysqld on</div><div class="line">service mysqld start</div><div class="line">/webserver/mysql/bin/mysql -u root -p</div><div class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'设置为新的密码(登陆命令行输入的默认密码会在之前几步操作mysqld --initialize的时候提示)'</span>;</div><div class="line"></div><div class="line">或</div><div class="line"></div><div class="line">/webserver/mysql/bin/mysqladmin -u root password <span class="string">'new-password'</span></div><div class="line">/webserver/mysql/bin/mysqladmin -u root -h t password <span class="string">'new-password'</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="安装-PHP7-0-8"><a href="#安装-PHP7-0-8" class="headerlink" title="安装 PHP7.0.8"></a>安装 PHP7.0.8</h3><p>PHP7.0.8 MD5值: 642d86f3269404abc1bbfd887b682ccf</p>
@@ -145,13 +145,14 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">listen = /tmp/php-cgi.sock</div></pre></td></tr></table></figure>
 </li>
 <li><p>启动php</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service phpfpmd start</div></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service phpfpmd start</div></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/nginx-mysql-php.html" data-id="ciznja3660011a0fyr1wli79e" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/nginx-mysql-php.html" data-id="cj9xxskw5001rzvs6ktjs3dv3" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/nginx-mysql-php.html#disqus_thread" class="article-comment-link">留言</a>
       

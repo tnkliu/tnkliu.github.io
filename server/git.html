@@ -45,7 +45,7 @@ git config user.name &amp;quot;xxx&amp;quot;
 git config push.default current
 
 把">
-<meta property="og:updated_time" content="2017-02-22T06:56:50.000Z">
+<meta property="og:updated_time" content="2017-04-06T02:11:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
 <meta name="twitter:description" content="常用命令
@@ -271,11 +271,20 @@ git add README.md
 git commit -m &quot;first commit&quot;
 git remote add origin git@github.com:xxx/xxx.git
 git push -u origin master
+</code></pre><ul>
+<li>修改 git 地址</li>
+</ul>
+<pre><code>git remote set-url origin [url]
+</code></pre><ul>
+<li>先删除 git 地址，后新加</li>
+</ul>
+<pre><code>git remote rm origin
+git remote add origin [url]
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/git.html" data-id="ciznja360000ta0fy2ff4lfk7" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/git.html" data-id="cj9xxskvu001dzvs6ts8r032u" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/git.html#disqus_thread" class="article-comment-link">留言</a>
       
