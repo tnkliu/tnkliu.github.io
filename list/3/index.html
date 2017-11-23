@@ -74,6 +74,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-go/reflect" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/reflect.html" class="article-date">
+  <time datetime="2016-03-24T07:04:13.000Z" itemprop="datePublished">2016-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/reflect.html">Go语言reflect包备注</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>来一个简单的实例</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">type</span> MyType <span class="keyword">struct</span> &#123;</div><div class="line">    Id   <span class="keyword">int</span></div><div class="line">    Name <span class="keyword">string</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    d := MyType&#123;<span class="number">1</span>, <span class="string">"Hello"</span>&#125;</div><div class="line">    t := reflect.TypeOf(d)</div><div class="line">    n := t.NumField()</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</div><div class="line">        fmt.Println(t.Field(i).Name)</div><div class="line">        fmt.Println(t.Field(i).Type)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 输出</span></div><div class="line"><span class="comment">// Id</span></div><div class="line"><span class="comment">// int</span></div><div class="line"><span class="comment">// Name</span></div><div class="line"><span class="comment">// string</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/reflect.html" data-id="cjac7is9x000ckbs6ygib3clm" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/reflect.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/反射/">反射</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-server/rsync" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/server/rsync.html" class="article-date">
@@ -148,7 +195,7 @@ secrets file = /etc/rsyncd/rsyncd.secrets
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/rsync.html" data-id="cj9xxskw3001ozvs64iafg2e9" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/rsync.html" data-id="cjac7isai0017kbs6tbrgodhe" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/rsync.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -232,7 +279,7 @@ localectl set-x11-keymap cn
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/centos-7.html" data-id="cj9xxskvq0018zvs6ldeewu1h" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/centos-7.html" data-id="cjac7isa4000lkbs6q1oo9fm3" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/centos-7.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -288,7 +335,7 @@ rpm -ql vim-common-7.4.160-1.el7.x86_64
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/centos-rpm.html" data-id="cj9xxskvr001azvs6zy8grnam" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/centos-rpm.html" data-id="cjac7isa6000pkbs6h9yevbzu" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/centos-rpm.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -374,74 +421,12 @@ docker stop (docker ps -a -q)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/docker.html" data-id="cj9xxskvv001fzvs6739r6pqt" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/docker.html" data-id="cjac7isa8000tkbs6xuo930p3" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/docker.html#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Docker/">Docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-server/vim" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/server/vim.html" class="article-date">
-  <time datetime="2016-01-17T01:56:54.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/server/">服务器</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/server/vim.html">vim设置以及常用快捷键</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>编译安装 vim (需要提前安装python、lua、luajit)</p>
-</blockquote>
-<figure class="highlight brainfuck"><table><tr><td class="code"><pre><div class="line"><span class="comment">#</span> <span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/storage/server/vim</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">features=huge</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">rubyinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">pythoninterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">python</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">dir=/usr/lib/python2</span><span class="string">.</span><span class="comment">7/config/</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">perlinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">cscope</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">luainterp=dynamic</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fontset</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">largefile</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">luajit</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">lua</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Cellar/luajit/2</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">4_1</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fail</span><span class="literal">-</span><span class="comment">if</span><span class="literal">-</span><span class="comment">missing</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gui=no</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">x</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">multibyte</span></div><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=/storage/server/vim</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">features=huge</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">rubyinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">pythoninterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">python</span><span class="literal">-</span><span class="comment">config</span><span class="literal">-</span><span class="comment">dir=/usr/lib/python2</span><span class="string">.</span><span class="comment">7/config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">perlinterp</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">cscope</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">luainterp=dynamic</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fontset</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">largefile</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">lua</span><span class="literal">-</span><span class="comment">prefix=/usr/local/Cellar/lua/5</span><span class="string">.</span><span class="comment">2</span><span class="string">.</span><span class="comment">4_4</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">fail</span><span class="literal">-</span><span class="comment">if</span><span class="literal">-</span><span class="comment">missing</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">gui=no</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">without</span><span class="literal">-</span><span class="comment">x</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">multibyte</span></div><div class="line"><span class="comment">make</span></div><div class="line"><span class="comment">make</span> <span class="comment">install</span></div></pre></td></tr></table></figure>
-<p>vim ~/.vimrc</p>
-<blockquote>
-<p>快捷键</p>
-</blockquote>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">syntax</span> enable <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">syntax</span> <span class="keyword">on</span> <span class="comment">"语法高亮</span></div><div class="line"><span class="keyword">filetype</span> <span class="keyword">on</span> <span class="comment">"检测文件的类型</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">history</span>=<span class="number">1000</span> <span class="comment">"记录历史行数</span></div><div class="line"><span class="keyword">set</span> background=dark <span class="comment">"背景使用黑色</span></div><div class="line"><span class="keyword">set</span> cursorline <span class="comment">"突出当前行</span></div><div class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span> <span class="comment">"设置tab键为4个空格</span></div><div class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span> <span class="comment">"设置为UTF-8</span></div><div class="line"><span class="keyword">set</span> fileformat=unix <span class="comment">"unix格式</span></div><div class="line"><span class="keyword">set</span> binary <span class="comment">"二进制</span></div><div class="line"><span class="keyword">set</span> noendofline <span class="comment">"保存文件的时候末尾不会自动新建一行</span></div><div class="line"><span class="keyword">set</span> <span class="keyword">fo</span>-=r <span class="comment">"不自动注释</span></div><div class="line"></div><div class="line"><span class="comment">"打开文件光标定位到上次打开的行</span></div><div class="line"><span class="keyword">if</span> <span class="built_in">has</span>(<span class="string">"autocmd"</span>)</div><div class="line">  <span class="keyword">au</span> BufReadPost * <span class="keyword">if</span> <span class="built_in">line</span>(<span class="string">"'\""</span>) &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">line</span>(<span class="string">"'\""</span>) &lt;= <span class="built_in">line</span>(<span class="string">"$"</span>) | <span class="keyword">exe</span> <span class="string">"normal! g'\""</span> | <span class="keyword">endif</span></div><div class="line"><span class="keyword">endif</span></div><div class="line"></div><div class="line"><span class="comment">"设置主题，主题包位置 /usr/share/vim/vim73/colors/ vim73根据版本适当调整</span></div><div class="line"><span class="keyword">colorscheme</span> desert</div></pre></td></tr></table></figure>
-<blockquote>
-<p>常用快捷键</p>
-</blockquote>
-<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">gh 进入select模式</div><div class="line">v 进入可视模式</div><div class="line">Q 进入Ex模式</div><div class="line"></div><div class="line">A 光标切换到本行最后，输入状态</div><div class="line"><span class="number">15</span>G 移动光标到第<span class="number">15</span>行</div><div class="line"></div><div class="line"><span class="string">"+Y 复制当前行到系统剪切板</span></div><div class="line">"+p 粘贴系统剪切板内容到当前位置后</div><div class="line"></div><div class="line">yw 复制一个单词</div><div class="line"><span class="number">8</span>yl 复制光标起<span class="number">8</span>个字符的内容</div><div class="line">yy 复制一行</div><div class="line">y<span class="variable">$ </span>复制光标所在位置到行尾的内容</div><div class="line">y^ 复制光标所在位置到行首的内容</div><div class="line"></div><div class="line">p 粘贴</div><div class="line"></div><div class="line">dw 剪切一个单词</div><div class="line">dd 剪切一行</div><div class="line">D 剪切到行尾</div><div class="line">S 清楚一行</div><div class="line"></div><div class="line">u 取消最近一次的操作</div><div class="line">&lt;ctrl&gt;r 恢复对使用u命令的操作</div><div class="line"></div><div class="line"><span class="symbol">:s/old/new</span> 用new替换行中首次出现的old</div><div class="line"><span class="symbol">:s/old/new/g</span> 用new替换行中所有出现的old</div><div class="line"><span class="symbol">:%s/old/new/g</span> 用new替换整篇中出现的old</div><div class="line"></div><div class="line">H 移动到屏幕顶部</div><div class="line">M 移动到屏幕中部</div><div class="line">L 移动到屏幕底部</div><div class="line"><span class="number">3</span>H 表示光标移动到距窗口顶部第<span class="number">3</span>行的位置</div><div class="line"><span class="number">5</span>L 表示光标移动到距窗口底部<span class="number">5</span>行的位置</div><div class="line"></div><div class="line">zt 光标所在位置移动到屏幕顶部</div><div class="line">zz 光标所在位置移动到屏幕中部</div><div class="line">zb 光标所在位置移动到屏幕底部</div><div class="line"></div><div class="line"><span class="number">10</span>l 光标向右移动<span class="number">10</span>列</div><div class="line"><span class="number">10</span>j 光标向下移动<span class="number">10</span>行</div><div class="line"><span class="number">10</span>&lt;enter&gt; 光标向下移动<span class="number">10</span>行</div><div class="line"></div><div class="line">&lt;ctrl&gt;b 向上一页</div><div class="line">&lt;ctrl&gt;f 向下一页</div><div class="line">&lt;ctrl&gt;u 向上半页</div><div class="line">&lt;ctrl&gt;d 向下半页</div><div class="line">&lt;ctrl&gt;y 向上一行</div><div class="line">&lt;ctrl&gt;e 向下一行</div><div class="line"></div><div class="line">&lt;ctrl&gt;o 回到较旧的光标位置</div><div class="line">&lt;ctrl&gt;i 返回较新的光标位置</div><div class="line"></div><div class="line">Vu 整行小写</div><div class="line">VU 整行大写</div><div class="line"></div><div class="line"><span class="symbol">:</span>!pwd 执行pwd命令，返回结果</div><div class="line">!!pwd 执行命令并插入结果到文件中</div><div class="line"><span class="symbol">:sh</span> 临时返回unix，到了sh后如果想退出直接输入exit退出sh</div><div class="line"></div><div class="line">m 后加字母，代表标记</div><div class="line"><span class="string">' 后加标记的字母，代表跳转到那行</span></div><div class="line"></div><div class="line">gt 多个标签间进行向右切换</div><div class="line">gT 多个标签间进行向左切换</div></pre></td></tr></table></figure>
-<blockquote>
-<p>自定义快捷键</p>
-</blockquote>
-<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">我设置的 <span class="params">&lt;leader&gt;</span> 键是 , (逗号)</div><div class="line"></div><div class="line">窗口最大化</div><div class="line"><span class="params">&lt;leader&gt;</span>zz</div><div class="line"></div><div class="line">注释 nerdcommenter</div><div class="line"><span class="params">&lt;leader&gt;</span>cc 添加注释</div><div class="line"><span class="params">&lt;leader&gt;</span>cu 取消注释</div><div class="line"></div><div class="line">折叠显示 Indent Guides</div><div class="line"><span class="params">&lt;leader&gt;</span>ii 显示/隐藏</div><div class="line"></div><div class="line">快速移动 easymotion</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;leader&gt;</span>f</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;leader&gt;</span>w</div><div class="line"></div><div class="line">打开 NERDTree</div><div class="line"><span class="params">&lt;leader&gt;</span>fl</div><div class="line"></div><div class="line">打开 NERDTree-tab</div><div class="line"><span class="params">&lt;leader&gt;</span>n</div><div class="line"></div><div class="line">打开 MiniBufExplorer</div><div class="line"><span class="params">&lt;leader&gt;</span>bl</div><div class="line"></div><div class="line">自动完成 UltiSnips</div><div class="line"><span class="params">&lt;leader&gt;</span><span class="params">&lt;tab&gt;</span></div><div class="line"></div><div class="line">快速搜索 ctrlp (搜索文件)</div><div class="line"><span class="params">&lt;ctrl&gt;</span>p</div><div class="line">快速搜索加强 Ack.vim 需要安装好 ag 实现快速搜索（搜索内容）</div><div class="line"><span class="params">&lt;leader&gt;</span>ag</div><div class="line"></div><div class="line">开发golang</div><div class="line"><span class="params">&lt;leader&gt;</span>gd</div><div class="line"><span class="params">&lt;leader&gt;</span>gv</div><div class="line"><span class="params">&lt;leader&gt;</span>dv</div><div class="line"><span class="params">&lt;leader&gt;</span>dt</div><div class="line"></div><div class="line">函数标签tagbar</div><div class="line"><span class="params">&lt;leader&gt;</span>tl</div><div class="line"></div><div class="line">更好显示行数 numbers.vim</div><div class="line">显示\隐藏</div><div class="line"><span class="params">&lt;leader&gt;</span>nu</div><div class="line"></div><div class="line">更好的状态栏显示 vim-airline</div><div class="line"><span class="params">&lt;leader&gt;</span>nb</div><div class="line"></div><div class="line">区域选中 vim-expand-region</div><div class="line">增加选中范围</div><div class="line">vvv</div><div class="line">减少选中范围</div><div class="line"><span class="params">&lt;ctrl&gt;</span>vvv</div><div class="line"></div><div class="line">有道翻译 vim-youdao-translater</div><div class="line"><span class="params">&lt;leader&gt;</span>yd 输入翻译</div><div class="line"><span class="params">&lt;leader&gt;</span>fy 翻译光标处的单词</div><div class="line"></div><div class="line">快速替换surround</div><div class="line">cs<span class="string">"' 把 "</span> 换成 '</div><div class="line"></div><div class="line">时光机gundo</div><div class="line"><span class="params">&lt;leader&gt;</span>h</div><div class="line"></div><div class="line">编辑html emmet-vim</div><div class="line">先输入 html:<span class="number">5</span></div><div class="line">然后</div><div class="line"><span class="params">&lt;ctrl&gt;</span>y,</div><div class="line"></div><div class="line">多光标操作 vim-multiple-cursors</div><div class="line"><span class="params">&lt;ctrl&gt;</span>n 选中光标下的单词</div><div class="line">多按几下 <span class="params">&lt;ctrl&gt;</span>n</div><div class="line">按下c进行修改</div><div class="line"><span class="params">&lt;esc&gt;</span> 退出</div><div class="line">其中<span class="params">&lt;ctrl&gt;</span>n选择的时候配合下面的键</div><div class="line"><span class="params">&lt;ctrl&gt;</span>p 回到上一个</div><div class="line"><span class="params">&lt;ctrl&gt;</span>x 跳过这一个</div></pre></td></tr></table></figure>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i in <span class="built_in">range</span>(<span class="number">49</span>,<span class="number">313</span>) | <span class="keyword">put</span> =<span class="string">''</span>.i.<span class="string">'.jpg'</span> | <span class="keyword">endfor</span></div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/vim.html" data-id="cj9xxskwc0025zvs6ola1ogih" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/server/vim.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/vim/">vim</a></li></ul>
 
     </footer>
   </div>
@@ -494,7 +479,7 @@ docker stop (docker ps -a -q)
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -505,6 +490,10 @@ docker stop (docker ps -a -q)
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/go/interface.html">Go interface</a>
+          </li>
         
           <li>
             <a href="/go/sort.html">Go语言排序算法</a>
@@ -520,10 +509,6 @@ docker stop (docker ps -a -q)
         
           <li>
             <a href="/server/mongodb.html">MongoDB 数据备份与还原</a>
-          </li>
-        
-          <li>
-            <a href="/server/mysql.html">MySQL命令</a>
           </li>
         
       </ul>

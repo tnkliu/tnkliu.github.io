@@ -74,6 +74,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-go/interface" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/go/interface.html" class="article-date">
+  <time datetime="2017-11-23T08:20:50.000Z" itemprop="datePublished">2017-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/go/">Go语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/go/interface.html">Go interface</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>直接上代码</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></div><div class="line"></div><div class="line"><span class="comment">// 金属</span></div><div class="line"><span class="keyword">type</span> Metal <span class="keyword">struct</span> &#123;</div><div class="line">    Attribute <span class="keyword">string</span> <span class="comment">// 属性</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m Metal)</span> <span class="title">Run</span><span class="params">()</span></span> &#123;</div><div class="line">    fmt.Println(<span class="string">"删掉的 「(c Car) Run()」 和 「(r Rocket) Run()」 试试"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 汽车</span></div><div class="line"><span class="keyword">type</span> Car <span class="keyword">struct</span> &#123;</div><div class="line">    Metal</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Car)</span> <span class="title">Run</span><span class="params">()</span></span> &#123;</div><div class="line">    fmt.Println(<span class="string">"能跑"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 火箭</span></div><div class="line"><span class="keyword">type</span> Rocket <span class="keyword">struct</span> &#123;</div><div class="line">    Metal</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r Rocket)</span> <span class="title">Run</span><span class="params">()</span></span> &#123;</div><div class="line">    fmt.Println(<span class="string">"能飞"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">type</span> Machine <span class="keyword">interface</span> &#123;</div><div class="line">    Run()</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> m Machine</div><div class="line">    m = Car&#123;&#125;</div><div class="line">    m.Run()</div><div class="line">    m = Rocket&#123;&#125;</div><div class="line">    m.Run()</div><div class="line"></div><div class="line">    m = <span class="built_in">new</span>(Rocket)</div><div class="line">    m.Run()</div><div class="line"></div><div class="line">    m = Metal&#123;&#125;</div><div class="line">    m.Run()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.tnkliu.com/go/interface.html" data-id="cjac7is9a0000kbs68mheu1tg" class="article-share-link">分享</a>
+      
+        <a href="http://www.tnkliu.com/go/interface.html#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Go/">Go</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-go/sort" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/go/sort.html" class="article-date">
@@ -111,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/go/sort.html" data-id="cj9xxskut0005zvs6am6lw5v4" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/go/sort.html" data-id="cjac7isa0000gkbs6jdojy6d3" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/go/sort.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -163,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/user.html" data-id="cj9xxskwa0022zvs6b8won9h7" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/user.html" data-id="cjac7isb90030kbs696nzxk4y" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/user.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -233,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/vsftpd.html" data-id="cj9xxskwe0029zvs653j8tump" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/vsftpd.html" data-id="cjac7isbb0033kbs6e9ke0aqs" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/vsftpd.html#disqus_thread" class="article-comment-link">留言</a>
       
@@ -281,72 +327,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/mongodb.html" data-id="cj9xxskw0001lzvs6c0l0c8ix" class="article-share-link">分享</a>
+      <a data-url="http://www.tnkliu.com/server/mongodb.html" data-id="cjac7isae0011kbs6npsanbnq" class="article-share-link">分享</a>
       
         <a href="http://www.tnkliu.com/server/mongodb.html#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/MongoDB/">MongoDB</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-server/mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/server/mysql.html" class="article-date">
-  <time datetime="2016-10-10T03:32:11.000Z" itemprop="datePublished">2016-10-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/server/">服务器</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/server/mysql.html">MySQL命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>mysqldump 导出表结构</li>
-</ol>
-<p>mysqldump –opt -d test -h 127.0.0.1 -u root -p &gt; test.sql</p>
-<ol>
-<li>mysql 导入</li>
-</ol>
-<p>mysql -h 127.0.0.1 -u root -p test &lt; test.sql</p>
-<ol>
-<li>SQL修改 mysql 密码</li>
-</ol>
-<p>mysql&gt; UPDATE mysql.user SET password=PASSWORD(‘123321’) WHERE User=’root’;</p>
-<ol>
-<li>SQL 创建数据库</li>
-</ol>
-<p>mysql&gt; CREATE DATABASE xxx DEFAULT CHARACTER SET = <code>utf8</code>;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.tnkliu.com/server/mysql.html" data-id="cj9xxskvx001jzvs6uju3y3ol" class="article-share-link">分享</a>
-      
-        <a href="http://www.tnkliu.com/server/mysql.html#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/MySQL/">MySQL</a></li></ul>
 
     </footer>
   </div>
@@ -399,7 +385,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2017/03/">三月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2016/01/">一月 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archive/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -410,6 +396,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/go/interface.html">Go interface</a>
+          </li>
         
           <li>
             <a href="/go/sort.html">Go语言排序算法</a>
@@ -425,10 +415,6 @@
         
           <li>
             <a href="/server/mongodb.html">MongoDB 数据备份与还原</a>
-          </li>
-        
-          <li>
-            <a href="/server/mysql.html">MySQL命令</a>
           </li>
         
       </ul>
